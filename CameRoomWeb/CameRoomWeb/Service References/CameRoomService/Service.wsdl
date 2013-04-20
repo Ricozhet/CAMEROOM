@@ -26,6 +26,12 @@
   <wsdl:message name="IService_getProvinceList_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProvinceListResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_getPlaceListByProvinceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPlaceListByProvinceID" />
+  </wsdl:message>
+  <wsdl:message name="IService_getPlaceListByProvinceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPlaceListByProvinceIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetData" message="tns:IService_GetData_InputMessage" />
@@ -38,6 +44,10 @@
     <wsdl:operation name="getProvinceList">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getProvinceList" message="tns:IService_getProvinceList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getProvinceListResponse" message="tns:IService_getProvinceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlaceListByProvinceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getPlaceListByProvinceID" message="tns:IService_getPlaceListByProvinceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getPlaceListByProvinceIDResponse" message="tns:IService_getPlaceListByProvinceID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -62,6 +72,15 @@
     </wsdl:operation>
     <wsdl:operation name="getProvinceList">
       <soap:operation soapAction="http://tempuri.org/IService/getProvinceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPlaceListByProvinceID">
+      <soap:operation soapAction="http://tempuri.org/IService/getPlaceListByProvinceID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -23,6 +23,10 @@ public interface IService
     bool getProvinceList(out DataSet ds, out string errMsg);
     #endregion
 
+    #region Place
+    [OperationContract]
+    bool getPlaceListByProvinceID(out DataSet ds, out string errMsg, int provinceID);
+    #endregion
     // TODO: Add your service operations here
 }
 

@@ -35,4 +35,12 @@ public class Service : IService
         return dl.getProvinceList(out ds, out errMsg);
     }
     #endregion
+
+    #region Place
+    public bool getPlaceListByProvinceID(out DataSet ds, out string errMsg, int provinceID)
+    {
+        PlaceDL dl = new PlaceDL();
+        return dl.getPlaceListByProvinceID(out ds, out errMsg, provinceID);
+    }
+    #endregion
 }
