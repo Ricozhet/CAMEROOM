@@ -6,7 +6,7 @@ using System.Web;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace CameRoomWeb.Models
+namespace CameRoomWeb.Models.GrapherModel
 {
     public class GrapherModel
     {
@@ -56,6 +56,7 @@ namespace CameRoomWeb.Models
         //[Compare("Password", ErrorMessage = "The confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
+        public int ProvinceID { get; set; }
         private CameRoomService.ServiceClient _cmrWS = new CameRoomService.ServiceClient();
         public IEnumerable<SelectListItem> listProvince
         {
