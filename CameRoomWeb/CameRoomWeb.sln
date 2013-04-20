@@ -2,6 +2,30 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameRoomWeb", "CameRoomWeb\CameRoomWeb.csproj", "{631EDF99-4912-452C-97C9-9D1F361A896B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3C81818E-30BB-4371-8040-5AB590EBEDD4} = {3C81818E-30BB-4371-8040-5AB590EBEDD4}
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CameRoomWCF", "http://localhost:49894", "{3C81818E-30BB-4371-8040-5AB590EBEDD4}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_49894"
+		Debug.AspNetCompiler.PhysicalPath = "..\CameRoomWCF\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49894\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_49894"
+		Release.AspNetCompiler.PhysicalPath = "..\CameRoomWCF\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49894\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\CameRoomWCF\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +37,10 @@ Global
 		{631EDF99-4912-452C-97C9-9D1F361A896B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{631EDF99-4912-452C-97C9-9D1F361A896B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{631EDF99-4912-452C-97C9-9D1F361A896B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C81818E-30BB-4371-8040-5AB590EBEDD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C81818E-30BB-4371-8040-5AB590EBEDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C81818E-30BB-4371-8040-5AB590EBEDD4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C81818E-30BB-4371-8040-5AB590EBEDD4}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
