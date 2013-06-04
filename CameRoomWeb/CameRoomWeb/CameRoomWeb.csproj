@@ -141,6 +141,9 @@
     <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getPlaceListByProvinceIDResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.insertGrapherRegisterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\CameRoomService\Service.disco" />
     <None Include="Service References\CameRoomService\configuration91.svcinfo" />
     <None Include="Service References\CameRoomService\configuration.svcinfo" />
@@ -201,7 +204,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>2834</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:2457/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

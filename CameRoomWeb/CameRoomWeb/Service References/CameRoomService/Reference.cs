@@ -47,6 +47,14 @@ namespace CameRoomWeb.CameRoomService {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getPlaceListByProvinceID", ReplyAction="http://tempuri.org/IService/getPlaceListByProvinceIDResponse")]
         System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getPlaceListByProvinceIDResponse> getPlaceListByProvinceIDAsync(CameRoomWeb.CameRoomService.getPlaceListByProvinceIDRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertGrapherRegister", ReplyAction="http://tempuri.org/IService/insertGrapherRegisterResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.insertGrapherRegisterResponse insertGrapherRegister(CameRoomWeb.CameRoomService.insertGrapherRegisterRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertGrapherRegister", ReplyAction="http://tempuri.org/IService/insertGrapherRegisterResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertGrapherRegisterResponse> insertGrapherRegisterAsync(CameRoomWeb.CameRoomService.insertGrapherRegisterRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -257,6 +265,78 @@ namespace CameRoomWeb.CameRoomService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertGrapherRegister", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertGrapherRegisterRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherEmail;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherSurname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherPersonalID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherMobileNumber;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherSex;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Password;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
+        public int ProvinceID;
+        
+        public insertGrapherRegisterRequest() {
+        }
+        
+        public insertGrapherRegisterRequest(string GrapherEmail, string GrapherName, string GrapherSurname, string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID) {
+            this.GrapherEmail = GrapherEmail;
+            this.GrapherName = GrapherName;
+            this.GrapherSurname = GrapherSurname;
+            this.GrapherPersonalID = GrapherPersonalID;
+            this.GrapherMobileNumber = GrapherMobileNumber;
+            this.GrapherSex = GrapherSex;
+            this.Password = Password;
+            this.ProvinceID = ProvinceID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertGrapherRegisterResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertGrapherRegisterResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool insertGrapherRegisterResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public insertGrapherRegisterResponse() {
+        }
+        
+        public insertGrapherRegisterResponse(bool insertGrapherRegisterResult, string errMsg) {
+            this.insertGrapherRegisterResult = insertGrapherRegisterResult;
+            this.errMsg = errMsg;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceChannel : CameRoomWeb.CameRoomService.IService, System.ServiceModel.IClientChannel {
     }
@@ -363,6 +443,30 @@ namespace CameRoomWeb.CameRoomService {
         
         public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getPlaceListByProvinceIDResponse> getPlaceListByProvinceIDAsync(CameRoomWeb.CameRoomService.getPlaceListByProvinceIDRequest request) {
             return base.Channel.getPlaceListByProvinceIDAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.insertGrapherRegisterResponse CameRoomWeb.CameRoomService.IService.insertGrapherRegister(CameRoomWeb.CameRoomService.insertGrapherRegisterRequest request) {
+            return base.Channel.insertGrapherRegister(request);
+        }
+        
+        public bool insertGrapherRegister(string GrapherEmail, string GrapherName, string GrapherSurname, string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID, out string errMsg) {
+            CameRoomWeb.CameRoomService.insertGrapherRegisterRequest inValue = new CameRoomWeb.CameRoomService.insertGrapherRegisterRequest();
+            inValue.GrapherEmail = GrapherEmail;
+            inValue.GrapherName = GrapherName;
+            inValue.GrapherSurname = GrapherSurname;
+            inValue.GrapherPersonalID = GrapherPersonalID;
+            inValue.GrapherMobileNumber = GrapherMobileNumber;
+            inValue.GrapherSex = GrapherSex;
+            inValue.Password = Password;
+            inValue.ProvinceID = ProvinceID;
+            CameRoomWeb.CameRoomService.insertGrapherRegisterResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).insertGrapherRegister(inValue);
+            errMsg = retVal.errMsg;
+            return retVal.insertGrapherRegisterResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertGrapherRegisterResponse> insertGrapherRegisterAsync(CameRoomWeb.CameRoomService.insertGrapherRegisterRequest request) {
+            return base.Channel.insertGrapherRegisterAsync(request);
         }
     }
 }

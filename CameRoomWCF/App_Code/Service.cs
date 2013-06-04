@@ -43,4 +43,15 @@ public class Service : IService
         return dl.getPlaceListByProvinceID(out ds, out errMsg, provinceID);
     }
     #endregion
+
+    #region Grapher
+    public bool insertGrapherRegister(out string errMsg, string GrapherEmail, string GrapherName, string GrapherSurname,
+    string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.insertGrapherRegister(out errMsg, GrapherEmail, GrapherName, GrapherSurname, GrapherPersonalID, GrapherMobileNumber, GrapherSex, Password, ProvinceID);
+    }
+    #endregion
+
+
 }

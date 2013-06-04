@@ -1,18 +1,19 @@
-﻿using System;
+﻿using Microsoft.ApplicationBlocks.Data;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using Microsoft.ApplicationBlocks.Data;
 
 /// <summary>
-/// Summary description for ProvinceDL
+/// Summary description for GrapherDL
 /// </summary>
-public class ProvinceDL
+public class GrapherDL
 {
+
     private DataHelper dbh;
-	public ProvinceDL()
+    public GrapherDL()
 	{
         try
         {
@@ -20,20 +21,22 @@ public class ProvinceDL
         }
         catch (Exception ex)
         {
-            
+
         }
 	}
 
-    public bool getProvinceList(out DataSet ds, out string errMsg)
+    public bool insertGrapherRegister(out string errMsg, string GrapherEmail, string GrapherName, string GrapherSurname, 
+    string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID)
     {
         bool result = false;
-        ds = new DataSet();
+        DataSet ds = new DataSet();
         errMsg = "";
         SqlConnection conn = dbh.getConnection();
         try
         {
             conn.Open();
-            ds = SqlHelper.ExecuteDataset(conn, "cmr_getProvinceList");
+            ds = SqlHelper.ExecuteDataset(conn, "cmr_insertGrapherRegister", GrapherEmail, GrapherName, GrapherSurname, GrapherPersonalID,
+                GrapherMobileNumber, GrapherSex, Password, ProvinceID);
             result = true;
         }
         catch (Exception ex)

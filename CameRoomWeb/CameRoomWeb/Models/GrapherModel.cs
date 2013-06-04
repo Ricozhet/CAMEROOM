@@ -76,5 +76,25 @@ namespace CameRoomWeb.Models.GrapherModel
                 }
             }
         }
+        public int EventTypeID { get; set; }
+        public IEnumerable<SelectListItem> listEventType
+        {
+            get
+            {
+                string errMsg = "";
+                DataSet ds = null;
+                DataTable dt = null;
+                if (!_cmrWS.getEventTypeList(out ds, out errMsg))
+                {
+                    return null;
+                }
+                else
+                {
+                    dt = ds.Tables[0];
+                    return Utilities.Utility.DT2SelectList(dt, "EVENTTYPEID", "EVENTTYPENAME");
+                }
+            }
+        }
+        
     }
 }

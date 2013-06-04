@@ -83,4 +83,26 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="insertGrapherRegister">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GrapherEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherSurname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherPersonalID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherMobileNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherSex" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProvinceID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertGrapherRegisterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertGrapherRegisterResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

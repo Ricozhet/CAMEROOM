@@ -3,5 +3,80 @@
     ViewBag.Title = "GrapherRegister";
 }
 
-<h2>GrapherRegister</h2>
-@Html.DropDownListFor(m => m.ProvinceID, Model.listProvince, "ALL", new { @class = "dropdown", style = "width:210px;" })
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width" />
+<title>Index</title>
+</head>
+<body>
+<div>
+<h2>Register</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td style = "width:150px;">Email</td>
+            <td>@Html.TextBoxFor(x => x.GrapherEmail)</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>@Html.TextBoxFor(x => x.Password)</td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td>@Html.TextBoxFor(x => x.ConfirmPassword)</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@Html.TextBoxFor(x => x.GrapherName)</td>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td>@Html.TextBoxFor(x => x.GrapherSurname)</td>
+        </tr>
+        <tr>
+            <td>Sex</td>
+            <td>@Html.DropDownListFor(x => x.GrapherSex, new[] {
+        new SelectListItem() {Text = "Male",    Value = "1"},
+        new SelectListItem() {Text = "Female",  Value = "2"}
+    }, "<Sex>")</td>
+        </tr>
+        <tr>
+            <td>Personal ID</td>
+            <td>@Html.TextBoxFor(x => x.GrapherPersonalID)</td>
+        </tr>
+        <tr>
+            <td>PIC</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Telephone Number</td>
+            <td>@Html.TextBoxFor(x => x.GrapherMobileNumber)</td>
+        </tr>
+        <tr>
+            <td>Event Type</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Province</td>
+            <td>@Html.DropDownListFor(m => m.ProvinceID, Model.listProvince, new { @class = "dropdown", style = "width:210px;" })</td>
+        </tr>
+    </table>
+    <br \><br \>
+    <input type="submit" value="Register" />
+}
+
+@using (Html.BeginForm("FileUpload", "api", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    { 
+        <p><input name="data" type="file" multiple></p>
+        <img src="/images/marcl.jpg" height="200" width="300">
+        <br \><br \>
+        <input type="submit" value="Submit Picture" />            
+    }
+
+
+</div>
+</body>
+</html>

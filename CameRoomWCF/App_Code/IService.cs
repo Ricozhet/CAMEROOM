@@ -27,6 +27,15 @@ public interface IService
     [OperationContract]
     bool getPlaceListByProvinceID(out DataSet ds, out string errMsg, int provinceID);
     #endregion
+
+    #region Grapher
+    [OperationContract]
+    bool insertGrapherRegister(out string errMsg, string GrapherEmail, string GrapherName, string GrapherSurname,
+    string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID);
+    #endregion
+
+
+
     // TODO: Add your service operations here
 }
 
