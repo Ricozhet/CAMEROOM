@@ -26,7 +26,7 @@ public class GrapherDL
 	}
 
     public bool insertGrapherRegister(out string errMsg, string GrapherEmail, string GrapherName, string GrapherSurname, 
-    string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID)
+    string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID)
     {
         bool result = false;
         DataSet ds = new DataSet();
@@ -36,7 +36,7 @@ public class GrapherDL
         {
             conn.Open();
             ds = SqlHelper.ExecuteDataset(conn, "cmr_insertGrapherRegister", GrapherEmail, GrapherName, GrapherSurname, GrapherPersonalID,
-                GrapherMobileNumber, GrapherSex, Password, ProvinceID);
+                GrapherPhoto, GrapherMobileNumber, GrapherSex, Password, ProvinceID);
             result = true;
         }
         catch (Exception ex)

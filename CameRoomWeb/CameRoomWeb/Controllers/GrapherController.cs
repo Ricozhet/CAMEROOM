@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -23,21 +24,18 @@ namespace CameRoomWeb.Controllers
             model.ProvinceID = 2;
             return View(model);
         }
-        /*
+
         [HttpPost]
-        public ActionResult GrapherRegister()
+        public ActionResult GrapherRegister(GrapherRegisterModel model)
         {
-            GrapherRegisterModel model = new GrapherRegisterModel();
-            
-            foreach (string upload in Request.Files)
-            {
-                Stream fileStream = Request.Files[upload].InputStream;
-                int fileLength = Request.Files[upload].ContentLength;
-                byte[] fileData = new byte[fileLength];
-                fileStream.Read(fileData, 0, fileLength);
-            }
+            string errMsg = "";
+            //insert pic
+            HttpPostedFileBase image = Request.Files[0];
+            Byte[] uploadimage = new Byte[image.ContentLength];
+            image.InputStream.Read(uploadimage, 0, image.ContentLength);
+            model.GrapherPhoto = uploadimage;
+            service.insertGrapherRegister(model.GrapherEmail, model.GrapherName, model.GrapherSurname, model.GrapherPersonalID, model.GrapherPhoto,model.GrapherMobileNumber, model.GrapherSex, model.Password, model.ProvinceID, out errMsg);
             return View(model);
         }
-         */
     }
 }

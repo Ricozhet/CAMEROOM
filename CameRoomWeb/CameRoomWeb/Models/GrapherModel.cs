@@ -45,6 +45,8 @@ namespace CameRoomWeb.Models.GrapherModel
         [Display(Name = "PersonalID : ")]
         public string GrapherPersonalID { get; set; }
         [Display(Name = "Mobile Number : ")]
+        public byte[] GrapherPhoto { get; set; }
+        [Display(Name = "Photo : ")]
         public string GrapherMobileNumber { get; set; }
         [Display(Name = "Sex : ")]
         public string GrapherSex { get; set; }
@@ -76,6 +78,13 @@ namespace CameRoomWeb.Models.GrapherModel
                 }
             }
         }
-        
+        public byte[] imageData { get; set; }
+        public string imageMimeType { get; set; }
+        public int imgWidth { get; set; }
+        public int imgHeight { get; set; }
+        public int maxSize { get; set; }
+        public string SystemMessage { get; set; }
+        public bool isError { get; set; }
+        public bool isEditMode { get; set; }
     }
 }

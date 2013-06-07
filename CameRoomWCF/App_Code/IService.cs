@@ -31,7 +31,7 @@ public interface IService
     #region Grapher
     [OperationContract]
     bool insertGrapherRegister(out string errMsg, string GrapherEmail, string GrapherName, string GrapherSurname,
-    string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID);
+    string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID);
     #endregion
 
 

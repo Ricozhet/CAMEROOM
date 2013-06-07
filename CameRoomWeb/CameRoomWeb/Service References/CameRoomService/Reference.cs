@@ -287,28 +287,33 @@ namespace CameRoomWeb.CameRoomService {
         public string GrapherPersonalID;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string GrapherMobileNumber;
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary", IsNullable=true)]
+        public byte[] GrapherPhoto;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string GrapherSex;
+        public string GrapherMobileNumber;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Password;
+        public string GrapherSex;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Password;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=8)]
         public int ProvinceID;
         
         public insertGrapherRegisterRequest() {
         }
         
-        public insertGrapherRegisterRequest(string GrapherEmail, string GrapherName, string GrapherSurname, string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID) {
+        public insertGrapherRegisterRequest(string GrapherEmail, string GrapherName, string GrapherSurname, string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID) {
             this.GrapherEmail = GrapherEmail;
             this.GrapherName = GrapherName;
             this.GrapherSurname = GrapherSurname;
             this.GrapherPersonalID = GrapherPersonalID;
+            this.GrapherPhoto = GrapherPhoto;
             this.GrapherMobileNumber = GrapherMobileNumber;
             this.GrapherSex = GrapherSex;
             this.Password = Password;
@@ -450,12 +455,13 @@ namespace CameRoomWeb.CameRoomService {
             return base.Channel.insertGrapherRegister(request);
         }
         
-        public bool insertGrapherRegister(string GrapherEmail, string GrapherName, string GrapherSurname, string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID, out string errMsg) {
+        public bool insertGrapherRegister(string GrapherEmail, string GrapherName, string GrapherSurname, string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID, out string errMsg) {
             CameRoomWeb.CameRoomService.insertGrapherRegisterRequest inValue = new CameRoomWeb.CameRoomService.insertGrapherRegisterRequest();
             inValue.GrapherEmail = GrapherEmail;
             inValue.GrapherName = GrapherName;
             inValue.GrapherSurname = GrapherSurname;
             inValue.GrapherPersonalID = GrapherPersonalID;
+            inValue.GrapherPhoto = GrapherPhoto;
             inValue.GrapherMobileNumber = GrapherMobileNumber;
             inValue.GrapherSex = GrapherSex;
             inValue.Password = Password;
