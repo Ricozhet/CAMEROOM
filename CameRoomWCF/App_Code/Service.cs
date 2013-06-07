@@ -46,10 +46,10 @@ public class Service : IService
 
     #region Grapher
     public bool insertGrapherRegister(out string errMsg, string GrapherEmail, string GrapherName, string GrapherSurname,
-    string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID)
+    string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID)
     {
         GrapherDL dl = new GrapherDL();
-        return dl.insertGrapherRegister(out errMsg, GrapherEmail, GrapherName, GrapherSurname, GrapherPersonalID, GrapherMobileNumber, GrapherSex, Password, ProvinceID);
+        return dl.insertGrapherRegister(out errMsg, GrapherEmail, GrapherName, GrapherSurname, GrapherPersonalID, GrapherPhoto, GrapherMobileNumber, GrapherSex, Password, ProvinceID);
     }
     #endregion
 

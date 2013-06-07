@@ -90,6 +90,7 @@
         <xs:element minOccurs="0" name="GrapherName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="GrapherSurname" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="GrapherPersonalID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherPhoto" nillable="true" type="xs:base64Binary" />
         <xs:element minOccurs="0" name="GrapherMobileNumber" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="GrapherSex" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />

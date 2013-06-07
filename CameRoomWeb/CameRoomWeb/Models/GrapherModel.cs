@@ -45,6 +45,8 @@ namespace CameRoomWeb.Models.GrapherModel
         [Display(Name = "PersonalID : ")]
         public string GrapherPersonalID { get; set; }
         [Display(Name = "Mobile Number : ")]
+        public byte[] GrapherPhoto { get; set; }
+        [Display(Name = "Photo : ")]
         public string GrapherMobileNumber { get; set; }
         [Display(Name = "Sex : ")]
         public string GrapherSex { get; set; }
@@ -76,25 +78,13 @@ namespace CameRoomWeb.Models.GrapherModel
                 }
             }
         }
-        public int EventTypeID { get; set; }
-        //public IEnumerable<SelectListItem> listEventType
-        //{
-        //    get
-        //    {
-        //        string errMsg = "";
-        //        DataSet ds = null;
-        //        DataTable dt = null;
-        //        if (!_cmrWS.getEventTypeList(out ds, out errMsg))
-        //        {
-        //            return null;
-        //        }
-        //        else
-        //        {
-        //            dt = ds.Tables[0];
-        //            return Utilities.Utility.DT2SelectList(dt, "EVENTTYPEID", "EVENTTYPENAME");
-        //        }
-        //    }
-        //}
-        
+        public byte[] imageData { get; set; }
+        public string imageMimeType { get; set; }
+        public int imgWidth { get; set; }
+        public int imgHeight { get; set; }
+        public int maxSize { get; set; }
+        public string SystemMessage { get; set; }
+        public bool isError { get; set; }
+        public bool isEditMode { get; set; }
     }
 }
