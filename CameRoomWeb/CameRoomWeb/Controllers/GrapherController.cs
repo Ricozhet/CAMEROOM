@@ -1,6 +1,7 @@
 ﻿using CameRoomWeb.Models.GrapherModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,13 +23,21 @@ namespace CameRoomWeb.Controllers
             model.ProvinceID = 2;
             return View(model);
         }
-
+        /*
         [HttpPost]
-        public ActionResult GrapherRegister(GrapherRegisterModel model)
+        public ActionResult GrapherRegister()
         {
-            string errMsg = "";
-            service.insertGrapherRegister(model.GrapherEmail,model.GrapherName,model.GrapherSurname,model.GrapherPersonalID,model.GrapherMobileNumber,model.GrapherSex,model.Password, model.ProvinceID, out errMsg);
+            GrapherRegisterModel model = new GrapherRegisterModel();
+            
+            foreach (string upload in Request.Files)
+            {
+                Stream fileStream = Request.Files[upload].InputStream;
+                int fileLength = Request.Files[upload].ContentLength;
+                byte[] fileData = new byte[fileLength];
+                fileStream.Read(fileData, 0, fileLength);
+            }
             return View(model);
         }
+         */
     }
 }

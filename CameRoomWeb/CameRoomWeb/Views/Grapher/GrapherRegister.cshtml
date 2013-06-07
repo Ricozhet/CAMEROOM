@@ -68,10 +68,10 @@
     <input type="submit" value="Register" />
 }
 
-@using (Html.BeginForm("FileUpload", "api", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("GrapherRegister", "Grapher", FormMethod.Post, new { enctype = "multipart/form-data" }))
     { 
-        <p><input name="data" type="file" multiple></p>
-        <img src="/images/marcl.jpg" height="200" width="300">
+        <p><input name="uploadFile" type="file"></p>
+        //<img src="/images/marcl.jpg" height="200" width="300">
         <br \><br \>
         <input type="submit" value="Submit Picture" />            
     }
