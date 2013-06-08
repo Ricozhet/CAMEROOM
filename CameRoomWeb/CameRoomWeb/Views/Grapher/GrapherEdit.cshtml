@@ -1,0 +1,67 @@
+﻿@model CameRoomWeb.Models.GrapherModel.GrapherEditModel
+@{
+    ViewBag.Title = "GrapherEdit";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width" />
+<title>Grapher Edit</title>
+</head>
+<body>
+<h2>Edit</h2>
+@using (Html.BeginForm("GrapherEdit", "Grapher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ 
+    <table>
+        <tr>
+            <td style = "width:150px;">Email</td>
+            <td>@Html.LabelFor(m => m.GrapherEmail)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@Html.TextBoxFor(m => m.GrapherName)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td>@Html.TextBoxFor(m => m.GrapherSurname)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Sex</td>
+            <td>@Html.LabelFor(m => m.GrapherSexDisplay)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>PersonalID</td>
+            <td>@Html.LabelFor(m => m.GrapherPersonalID)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>PIC</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Telephone Number</td>
+            <td>@Html.TextBoxFor(m => m.GrapherTelephoneNumber)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Event Type</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Province</td>
+            <td>@Html.DropDownListFor(m => m.ProvinceID, Model.listProvince, new { @class = "dropdown", style = "width:210px;" })</td>
+            <td></td>
+        </tr>
+    </table>
+    <br \><br \>
+    <input type="submit" value="Update" />
+}
+</body>
+</html>

@@ -103,6 +103,69 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="insertGrapherRegisterResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertGrapherRegisterMapEarningRate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
+        <xs:element minOccurs="0" name="EventTypeID" type="xs:int" />
+        <xs:element minOccurs="0" name="MorningRate" type="xs:double" />
+        <xs:element minOccurs="0" name="AfternoonRate" type="xs:double" />
+        <xs:element minOccurs="0" name="EveningRate" type="xs:double" />
+        <xs:element minOccurs="0" name="FullDayRate" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertGrapherRegisterMapEarningRateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertGrapherRegisterMapEarningRateResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGrapherProfileByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GrapherEmail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGrapherProfileByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getGrapherProfileByEmailResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
+        <xs:element minOccurs="0" name="GrapherName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherSurname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherPersonalID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherMobileNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherSex" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProvinceID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGrapherEarningRateProfileByGrapherIDandGrapherEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
+        <xs:element minOccurs="0" name="EventTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getGrapherEarningRateProfileByGrapherIDandGrapherEmailResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MorningRate" type="xs:double" />
+        <xs:element minOccurs="0" name="AfternoonRate" type="xs:double" />
+        <xs:element minOccurs="0" name="EveningRate" type="xs:double" />
+        <xs:element minOccurs="0" name="FulldayRate" type="xs:double" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
