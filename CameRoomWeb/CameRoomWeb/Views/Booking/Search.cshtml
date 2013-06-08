@@ -1,0 +1,14 @@
+﻿@model CameRoomWeb.Models.BookingModel.Booking
+@using System.Data;
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Search</h2>
+
+@foreach(DataRow dr in Model.SearchGrapher.Tables[0].Rows)
+{
+                <a href="@Url.Action("Details","Booking", new { @id = dr[0] })">
+                <img width="150px" height="150px" alt="company logo" src="@Url.Action("GetLogoImage", "Booking")" />
+                </a>
+}

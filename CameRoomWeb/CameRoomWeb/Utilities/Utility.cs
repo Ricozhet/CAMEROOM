@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CameRoomWeb.Utilities
 {
@@ -25,6 +26,23 @@ namespace CameRoomWeb.Utilities
                 });
             }
             return new System.Web.Mvc.SelectList(list.AsEnumerable(), "value", "text");
+        }
+
+        public static IEnumerable<SelectListItem> getPlaceListByProvinceID(int provinceID)
+        {
+            CameRoomService.ServiceClient cmrWS = new CameRoomService.ServiceClient();
+            string errMsg = "";
+            DataSet ds = null;
+            DataTable dt = null;
+            if (!cmrWS.getPlaceListByProvinceID(provinceID,out ds, out errMsg))
+            {
+                return null;
+            }
+            else
+            {
+                dt = ds.Tables[0];
+                return DT2SelectList(dt, "PLACEID", "PLACENAME");
+            }
         }
     }
 

@@ -1,0 +1,16 @@
+﻿@model CameRoomWeb.Models.BookingModel.Booking
+@{
+    ViewBag.Title = "SelectEvent";
+}
+
+<h2>SelectEvent</h2>
+
+@using (Html.BeginForm("SelectEvent", "Booking", FormMethod.Post))
+{
+    <button name="button" value="1"><img src="~/images/Graduation.jpg" /></button>
+    <button name="button" value="2"><img src="~/images/Wedding.jpg" /></button>
+    <button name="button" value="3"><img src="~/images/Pretty.jpg" /></button>
+    @*<input type="image" src="~/images/Graduation.jpg" alt="Submit Form" name="eventType" value="1"/>
+    <input type="image" src="~/images/Wedding.jpg" alt="Submit Form" name="eventType" value="2" />
+    <input type="image" src="~/images/Pretty.jpg" alt="Submit Form" name="eventType" value="3" />*@
+}

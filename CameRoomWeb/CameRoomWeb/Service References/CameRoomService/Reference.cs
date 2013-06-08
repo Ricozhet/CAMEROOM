@@ -55,6 +55,14 @@ namespace CameRoomWeb.CameRoomService {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertGrapherRegister", ReplyAction="http://tempuri.org/IService/insertGrapherRegisterResponse")]
         System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertGrapherRegisterResponse> insertGrapherRegisterAsync(CameRoomWeb.CameRoomService.insertGrapherRegisterRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherForBooking", ReplyAction="http://tempuri.org/IService/getGrapherForBookingResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.getGrapherForBookingResponse getGrapherForBooking(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherForBooking", ReplyAction="http://tempuri.org/IService/getGrapherForBookingResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherForBookingResponse> getGrapherForBookingAsync(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -342,6 +350,65 @@ namespace CameRoomWeb.CameRoomService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherForBooking", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getGrapherForBookingRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string bookingDatetime;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int bookingTypeID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public int eventType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public int provinceID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public int placeID;
+        
+        public getGrapherForBookingRequest() {
+        }
+        
+        public getGrapherForBookingRequest(string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID) {
+            this.bookingDatetime = bookingDatetime;
+            this.bookingTypeID = bookingTypeID;
+            this.eventType = eventType;
+            this.provinceID = provinceID;
+            this.placeID = placeID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherForBookingResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getGrapherForBookingResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool getGrapherForBookingResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Data.DataSet ds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public getGrapherForBookingResponse() {
+        }
+        
+        public getGrapherForBookingResponse(bool getGrapherForBookingResult, System.Data.DataSet ds, string errMsg) {
+            this.getGrapherForBookingResult = getGrapherForBookingResult;
+            this.ds = ds;
+            this.errMsg = errMsg;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceChannel : CameRoomWeb.CameRoomService.IService, System.ServiceModel.IClientChannel {
     }
@@ -473,6 +540,28 @@ namespace CameRoomWeb.CameRoomService {
         
         public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertGrapherRegisterResponse> insertGrapherRegisterAsync(CameRoomWeb.CameRoomService.insertGrapherRegisterRequest request) {
             return base.Channel.insertGrapherRegisterAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.getGrapherForBookingResponse CameRoomWeb.CameRoomService.IService.getGrapherForBooking(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request) {
+            return base.Channel.getGrapherForBooking(request);
+        }
+        
+        public bool getGrapherForBooking(string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID, out System.Data.DataSet ds, out string errMsg) {
+            CameRoomWeb.CameRoomService.getGrapherForBookingRequest inValue = new CameRoomWeb.CameRoomService.getGrapherForBookingRequest();
+            inValue.bookingDatetime = bookingDatetime;
+            inValue.bookingTypeID = bookingTypeID;
+            inValue.eventType = eventType;
+            inValue.provinceID = provinceID;
+            inValue.placeID = placeID;
+            CameRoomWeb.CameRoomService.getGrapherForBookingResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).getGrapherForBooking(inValue);
+            ds = retVal.ds;
+            errMsg = retVal.errMsg;
+            return retVal.getGrapherForBookingResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherForBookingResponse> getGrapherForBookingAsync(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request) {
+            return base.Channel.getGrapherForBookingAsync(request);
         }
     }
 }

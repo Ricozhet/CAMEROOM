@@ -34,7 +34,10 @@ public interface IService
     string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID);
     #endregion
 
-
+    #region Booking
+    [OperationContract]
+    bool getGrapherForBooking(out DataSet ds, out string errMsg, string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID);
+    #endregion
 
     // TODO: Add your service operations here
 }

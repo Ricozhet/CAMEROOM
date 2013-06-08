@@ -38,6 +38,12 @@
   <wsdl:message name="IService_insertGrapherRegister_OutputMessage">
     <wsdl:part name="parameters" element="tns:insertGrapherRegisterResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_getGrapherForBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherForBooking" />
+  </wsdl:message>
+  <wsdl:message name="IService_getGrapherForBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherForBookingResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetData" message="tns:IService_GetData_InputMessage" />
@@ -58,6 +64,10 @@
     <wsdl:operation name="insertGrapherRegister">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/insertGrapherRegister" message="tns:IService_insertGrapherRegister_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/insertGrapherRegisterResponse" message="tns:IService_insertGrapherRegister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getGrapherForBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherForBooking" message="tns:IService_getGrapherForBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherForBookingResponse" message="tns:IService_getGrapherForBooking_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -100,6 +110,15 @@
     </wsdl:operation>
     <wsdl:operation name="insertGrapherRegister">
       <soap:operation soapAction="http://tempuri.org/IService/insertGrapherRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrapherForBooking">
+      <soap:operation soapAction="http://tempuri.org/IService/getGrapherForBooking" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
