@@ -45,12 +45,36 @@ public class Service : IService
     #endregion
 
     #region Grapher
-    public bool insertGrapherRegister(out string errMsg, string GrapherEmail, string GrapherName, string GrapherSurname,
+    public bool insertGrapherRegister(out string errMsg, out long GrapherID, string GrapherEmail, string GrapherName, string GrapherSurname,
     string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID)
     {
         GrapherDL dl = new GrapherDL();
-        return dl.insertGrapherRegister(out errMsg, GrapherEmail, GrapherName, GrapherSurname, GrapherPersonalID, GrapherPhoto, GrapherMobileNumber, GrapherSex, Password, ProvinceID);
+        return dl.insertGrapherRegister(out errMsg, out GrapherID, GrapherEmail, GrapherName, GrapherSurname, GrapherPersonalID, GrapherPhoto, GrapherMobileNumber, GrapherSex, Password, ProvinceID);
     }
+
+    public bool insertGrapherRegisterMapEarningRate(out string errMsg, long GrapherID, int EventTypeID, double MorningRate, double AfternoonRate,
+        double EveningRate, double FullDayRate)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.insertGrapherRegisterMapEarningRate(out errMsg, GrapherID, EventTypeID, MorningRate, AfternoonRate, EveningRate, FullDayRate);
+    }
+
+    public bool getGrapherProfileByEmail(out string errMsg, out long GrapherID, out string GrapherName, out string GrapherSurname, out string GrapherPersonalID,
+       out string GrapherMobileNumber, out string GrapherSex, out int ProvinceID, string GrapherEmail)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.getGrapherProfileByEmail(out errMsg, out GrapherID, out GrapherName, out GrapherSurname, out GrapherPersonalID,
+        out GrapherMobileNumber, out GrapherSex, out ProvinceID, GrapherEmail);
+    }
+
+    public bool getGrapherEarningRateProfileByGrapherIDandGrapherEmail(out string errMsg, out double MorningRate,
+        out double AfternoonRate, out double EveningRate, out double FulldayRate, long GrapherID, int EventTypeID)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.getGrapherEarningRateProfileByGrapherIDandGrapherEmail(out errMsg, out MorningRate,
+        out AfternoonRate, out EveningRate, out FulldayRate, GrapherID, EventTypeID);
+    }
+
     #endregion
 
 

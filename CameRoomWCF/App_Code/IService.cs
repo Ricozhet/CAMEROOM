@@ -30,11 +30,21 @@ public interface IService
 
     #region Grapher
     [OperationContract]
-    bool insertGrapherRegister(out string errMsg, string GrapherEmail, string GrapherName, string GrapherSurname,
+    bool insertGrapherRegister(out string errMsg, out long GrapherID, string GrapherEmail, string GrapherName, string GrapherSurname,
     string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID);
+
+    [OperationContract]
+    bool insertGrapherRegisterMapEarningRate(out string errMsg, long GrapherID, int EventTypeID, double MorningRate, double AfternoonRate,
+        double EveningRate, double FullDayRate);
+
+    [OperationContract]
+    bool getGrapherProfileByEmail(out string errMsg, out long GrapherID, out string GrapherName, out string GrapherSurname, out string GrapherPersonalID,
+        out string GrapherMobileNumber, out string GrapherSex, out int ProvinceID, string GrapherEmail);
+
+    [OperationContract]
+    bool getGrapherEarningRateProfileByGrapherIDandGrapherEmail(out string errMsg, out double MorningRate,
+        out double AfternoonRate, out double EveningRate, out double FulldayRate, long GrapherID, int EventTypeID);
     #endregion
-
-
 
     // TODO: Add your service operations here
 }

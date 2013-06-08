@@ -7,7 +7,20 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width" />
-<title>Index</title>
+<title>Grapher Register</title>
+
+<script type="text/javascript">
+    function EventTypeClicked1(sender) {
+            document.getElementById('congratprice').style.display = sender.checked ? 'block' : 'none';
+    }
+    function EventTypeClicked2(sender) {
+            document.getElementById('weddingprice').style.display = sender.checked ? 'block' : 'none';
+    }
+    function EventTypeClicked3(sender) {
+            document.getElementById('otherprice').style.display = sender.checked ? 'block' : 'none';
+    }
+</script>
+
 </head>
 <body>
 <div>
@@ -56,7 +69,50 @@
         </tr>
         <tr>
             <td>Event Type</td>
+           @* <td>@Html.CheckBoxFor(x => x.EventTypeforCongratulation) Congratulation</td>*@
+            <td>
+                <input type="checkbox" id="CheckBox1" name="CongratType" value="1" runat="server" onclick="EventTypeClicked1(this)">Congratulation
+                <div id="congratprice" style="display: none">
+                    Morning:
+                    @Html.TextBoxFor(x => x.PriceforCongratulationMorning)&nbsp&nbsp
+                    Afternoon
+                    @Html.TextBoxFor(x => x.PriceforCongratulationAfternoon)&nbsp&nbsp
+                    Fullday
+                    @Html.TextBoxFor(x => x.PriceforCongratulationFullday)&nbsp&nbsp
+                </div>
+            </td>
+        </tr>
+        <tr>
             <td></td>
+            <td>
+                <input type="checkbox" id="CheckBox2" name="WeddingType" value="1" runat="server" onclick="EventTypeClicked2(this)">Wedding
+                <div id="weddingprice" style="display: none">
+                    Morning:
+                    @Html.TextBoxFor(x => x.PriceforWeddingMorning)&nbsp&nbsp
+                    Afternoon
+                    @Html.TextBoxFor(x => x.PriceforWeddingAfternoon)&nbsp&nbsp
+                    Evening
+                    @Html.TextBoxFor(x => x.PriceforWeddingEvening)&nbsp&nbsp
+                    Fullday
+                    @Html.TextBoxFor(x => x.PriceforWeddingFullday)&nbsp&nbsp
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" id="CheckBox3" name="OtherType" value="1" runat="server" onclick="EventTypeClicked3(this)">Other Event
+                <div id="otherprice" style="display: none">
+                    Morning:
+                    @Html.TextBoxFor(x => x.PriceforOtherMorning)&nbsp&nbsp
+                    Afternoon
+                    @Html.TextBoxFor(x => x.PriceforOtherAfternoon)&nbsp&nbsp
+                    Evening
+                    @Html.TextBoxFor(x => x.PriceforOtherEvening)&nbsp&nbsp
+                    Fullday
+                    @Html.TextBoxFor(x => x.PriceforOtherFullday)&nbsp&nbsp
+                </div>
+            </td>
         </tr>
         <tr>
             <td>Province</td>
@@ -66,7 +122,6 @@
     <br \><br \>
     <input type="submit" value="Register" />
 }
-
 </div>
 </body>
 </html>

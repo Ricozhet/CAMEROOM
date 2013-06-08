@@ -78,6 +78,7 @@ namespace CameRoomWeb.Models.GrapherModel
                 }
             }
         }
+        /*
         public byte[] imageData { get; set; }
         public string imageMimeType { get; set; }
         public int imgWidth { get; set; }
@@ -86,5 +87,58 @@ namespace CameRoomWeb.Models.GrapherModel
         public string SystemMessage { get; set; }
         public bool isError { get; set; }
         public bool isEditMode { get; set; }
+        */
+        //public bool EventTypeforCongratulation { get; set; }
+        //public bool EventTypeforWedding { get; set; }
+        //public bool EventTypeforOther { get; set; }
+        public double PriceforCongratulationMorning { get; set; }
+        public double PriceforCongratulationAfternoon { get; set; }
+        public double PriceforCongratulationFullday { get; set; }
+
+        public double PriceforWeddingMorning { get; set; }
+        public double PriceforWeddingAfternoon { get; set; }
+        public double PriceforWeddingEvening { get; set; }
+        public double PriceforWeddingFullday { get; set; }
+
+        public double PriceforOtherMorning { get; set; }
+        public double PriceforOtherAfternoon { get; set; }
+        public double PriceforOtherEvening { get; set; }
+        public double PriceforOtherFullday { get; set; }
+    }
+
+
+    public class GrapherEditModel
+    {
+        public long GrapherID { get; set; }
+        public string GrapherEmail { get; set; }
+        public string GrapherName { get; set; }
+        public string GrapherSurname { get; set; }
+        public string GrapherPersonalID { get; set; }
+        //public byte[] GrapherPhoto { get; set; }
+        public string GrapherTelephoneNumber { get; set; }
+        public string GrapherSex { get; set; }
+        public string GrapherSexDisplay { get; set; }
+        //public int EventTypeID { get; set; }
+        //public double 
+        public int ProvinceID { get; set; }
+        private CameRoomService.ServiceClient _cmrWS = new CameRoomService.ServiceClient();
+        public IEnumerable<SelectListItem> listProvince
+        {
+            get
+            {
+                string errMsg = "";
+                DataSet ds = null;
+                DataTable dt = null;
+                if (!_cmrWS.getProvinceList(out ds, out errMsg))
+                {
+                    return null;
+                }
+                else
+                {
+                    dt = ds.Tables[0];
+                    return Utilities.Utility.DT2SelectList(dt, "PROVINCEID", "PROVINCENAME");
+                }
+            }
+        }
     }
 }

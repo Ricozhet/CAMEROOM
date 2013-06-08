@@ -144,6 +144,12 @@
     <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.insertGrapherRegisterResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getGrapherProfileByEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\CameRoomService\Service.disco" />
     <None Include="Service References\CameRoomService\configuration91.svcinfo" />
     <None Include="Service References\CameRoomService\configuration.svcinfo" />
@@ -170,6 +176,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Grapher\GrapherRegister.cshtml" />
+    <Content Include="Views\Grapher\GrapherEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

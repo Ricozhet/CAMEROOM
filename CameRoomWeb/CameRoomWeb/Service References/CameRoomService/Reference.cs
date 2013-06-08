@@ -55,6 +55,34 @@ namespace CameRoomWeb.CameRoomService {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertGrapherRegister", ReplyAction="http://tempuri.org/IService/insertGrapherRegisterResponse")]
         System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertGrapherRegisterResponse> insertGrapherRegisterAsync(CameRoomWeb.CameRoomService.insertGrapherRegisterRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertGrapherRegisterMapEarningRate", ReplyAction="http://tempuri.org/IService/insertGrapherRegisterMapEarningRateResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateResponse insertGrapherRegisterMapEarningRate(CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertGrapherRegisterMapEarningRate", ReplyAction="http://tempuri.org/IService/insertGrapherRegisterMapEarningRateResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateResponse> insertGrapherRegisterMapEarningRateAsync(CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherProfileByEmail", ReplyAction="http://tempuri.org/IService/getGrapherProfileByEmailResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.getGrapherProfileByEmailResponse getGrapherProfileByEmail(CameRoomWeb.CameRoomService.getGrapherProfileByEmailRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherProfileByEmail", ReplyAction="http://tempuri.org/IService/getGrapherProfileByEmailResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherProfileByEmailResponse> getGrapherProfileByEmailAsync(CameRoomWeb.CameRoomService.getGrapherProfileByEmailRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmai" +
+            "l", ReplyAction="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmai" +
+            "lResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse getGrapherEarningRateProfileByGrapherIDandGrapherEmail(CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmai" +
+            "l", ReplyAction="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmai" +
+            "lResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse> getGrapherEarningRateProfileByGrapherIDandGrapherEmailAsync(CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -333,12 +361,201 @@ namespace CameRoomWeb.CameRoomService {
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string errMsg;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public long GrapherID;
+        
         public insertGrapherRegisterResponse() {
         }
         
-        public insertGrapherRegisterResponse(bool insertGrapherRegisterResult, string errMsg) {
+        public insertGrapherRegisterResponse(bool insertGrapherRegisterResult, string errMsg, long GrapherID) {
             this.insertGrapherRegisterResult = insertGrapherRegisterResult;
             this.errMsg = errMsg;
+            this.GrapherID = GrapherID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertGrapherRegisterMapEarningRate", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertGrapherRegisterMapEarningRateRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long GrapherID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int EventTypeID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public double MorningRate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public double AfternoonRate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public double EveningRate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public double FullDayRate;
+        
+        public insertGrapherRegisterMapEarningRateRequest() {
+        }
+        
+        public insertGrapherRegisterMapEarningRateRequest(long GrapherID, int EventTypeID, double MorningRate, double AfternoonRate, double EveningRate, double FullDayRate) {
+            this.GrapherID = GrapherID;
+            this.EventTypeID = EventTypeID;
+            this.MorningRate = MorningRate;
+            this.AfternoonRate = AfternoonRate;
+            this.EveningRate = EveningRate;
+            this.FullDayRate = FullDayRate;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertGrapherRegisterMapEarningRateResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertGrapherRegisterMapEarningRateResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool insertGrapherRegisterMapEarningRateResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public insertGrapherRegisterMapEarningRateResponse() {
+        }
+        
+        public insertGrapherRegisterMapEarningRateResponse(bool insertGrapherRegisterMapEarningRateResult, string errMsg) {
+            this.insertGrapherRegisterMapEarningRateResult = insertGrapherRegisterMapEarningRateResult;
+            this.errMsg = errMsg;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherProfileByEmail", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getGrapherProfileByEmailRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherEmail;
+        
+        public getGrapherProfileByEmailRequest() {
+        }
+        
+        public getGrapherProfileByEmailRequest(string GrapherEmail) {
+            this.GrapherEmail = GrapherEmail;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherProfileByEmailResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getGrapherProfileByEmailResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool getGrapherProfileByEmailResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public long GrapherID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherSurname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherPersonalID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherMobileNumber;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GrapherSex;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=8)]
+        public int ProvinceID;
+        
+        public getGrapherProfileByEmailResponse() {
+        }
+        
+        public getGrapherProfileByEmailResponse(bool getGrapherProfileByEmailResult, string errMsg, long GrapherID, string GrapherName, string GrapherSurname, string GrapherPersonalID, string GrapherMobileNumber, string GrapherSex, int ProvinceID) {
+            this.getGrapherProfileByEmailResult = getGrapherProfileByEmailResult;
+            this.errMsg = errMsg;
+            this.GrapherID = GrapherID;
+            this.GrapherName = GrapherName;
+            this.GrapherSurname = GrapherSurname;
+            this.GrapherPersonalID = GrapherPersonalID;
+            this.GrapherMobileNumber = GrapherMobileNumber;
+            this.GrapherSex = GrapherSex;
+            this.ProvinceID = ProvinceID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherEarningRateProfileByGrapherIDandGrapherEmail", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getGrapherEarningRateProfileByGrapherIDandGrapherEmailRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long GrapherID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int EventTypeID;
+        
+        public getGrapherEarningRateProfileByGrapherIDandGrapherEmailRequest() {
+        }
+        
+        public getGrapherEarningRateProfileByGrapherIDandGrapherEmailRequest(long GrapherID, int EventTypeID) {
+            this.GrapherID = GrapherID;
+            this.EventTypeID = EventTypeID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool getGrapherEarningRateProfileByGrapherIDandGrapherEmailResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public double MorningRate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public double AfternoonRate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public double EveningRate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public double FulldayRate;
+        
+        public getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse() {
+        }
+        
+        public getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse(bool getGrapherEarningRateProfileByGrapherIDandGrapherEmailResult, string errMsg, double MorningRate, double AfternoonRate, double EveningRate, double FulldayRate) {
+            this.getGrapherEarningRateProfileByGrapherIDandGrapherEmailResult = getGrapherEarningRateProfileByGrapherIDandGrapherEmailResult;
+            this.errMsg = errMsg;
+            this.MorningRate = MorningRate;
+            this.AfternoonRate = AfternoonRate;
+            this.EveningRate = EveningRate;
+            this.FulldayRate = FulldayRate;
         }
     }
     
@@ -455,7 +672,7 @@ namespace CameRoomWeb.CameRoomService {
             return base.Channel.insertGrapherRegister(request);
         }
         
-        public bool insertGrapherRegister(string GrapherEmail, string GrapherName, string GrapherSurname, string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID, out string errMsg) {
+        public bool insertGrapherRegister(string GrapherEmail, string GrapherName, string GrapherSurname, string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID, out string errMsg, out long GrapherID) {
             CameRoomWeb.CameRoomService.insertGrapherRegisterRequest inValue = new CameRoomWeb.CameRoomService.insertGrapherRegisterRequest();
             inValue.GrapherEmail = GrapherEmail;
             inValue.GrapherName = GrapherName;
@@ -468,11 +685,80 @@ namespace CameRoomWeb.CameRoomService {
             inValue.ProvinceID = ProvinceID;
             CameRoomWeb.CameRoomService.insertGrapherRegisterResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).insertGrapherRegister(inValue);
             errMsg = retVal.errMsg;
+            GrapherID = retVal.GrapherID;
             return retVal.insertGrapherRegisterResult;
         }
         
         public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertGrapherRegisterResponse> insertGrapherRegisterAsync(CameRoomWeb.CameRoomService.insertGrapherRegisterRequest request) {
             return base.Channel.insertGrapherRegisterAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateResponse CameRoomWeb.CameRoomService.IService.insertGrapherRegisterMapEarningRate(CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateRequest request) {
+            return base.Channel.insertGrapherRegisterMapEarningRate(request);
+        }
+        
+        public bool insertGrapherRegisterMapEarningRate(long GrapherID, int EventTypeID, double MorningRate, double AfternoonRate, double EveningRate, double FullDayRate, out string errMsg) {
+            CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateRequest inValue = new CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateRequest();
+            inValue.GrapherID = GrapherID;
+            inValue.EventTypeID = EventTypeID;
+            inValue.MorningRate = MorningRate;
+            inValue.AfternoonRate = AfternoonRate;
+            inValue.EveningRate = EveningRate;
+            inValue.FullDayRate = FullDayRate;
+            CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).insertGrapherRegisterMapEarningRate(inValue);
+            errMsg = retVal.errMsg;
+            return retVal.insertGrapherRegisterMapEarningRateResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateResponse> insertGrapherRegisterMapEarningRateAsync(CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateRequest request) {
+            return base.Channel.insertGrapherRegisterMapEarningRateAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.getGrapherProfileByEmailResponse CameRoomWeb.CameRoomService.IService.getGrapherProfileByEmail(CameRoomWeb.CameRoomService.getGrapherProfileByEmailRequest request) {
+            return base.Channel.getGrapherProfileByEmail(request);
+        }
+        
+        public bool getGrapherProfileByEmail(string GrapherEmail, out string errMsg, out long GrapherID, out string GrapherName, out string GrapherSurname, out string GrapherPersonalID, out string GrapherMobileNumber, out string GrapherSex, out int ProvinceID) {
+            CameRoomWeb.CameRoomService.getGrapherProfileByEmailRequest inValue = new CameRoomWeb.CameRoomService.getGrapherProfileByEmailRequest();
+            inValue.GrapherEmail = GrapherEmail;
+            CameRoomWeb.CameRoomService.getGrapherProfileByEmailResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).getGrapherProfileByEmail(inValue);
+            errMsg = retVal.errMsg;
+            GrapherID = retVal.GrapherID;
+            GrapherName = retVal.GrapherName;
+            GrapherSurname = retVal.GrapherSurname;
+            GrapherPersonalID = retVal.GrapherPersonalID;
+            GrapherMobileNumber = retVal.GrapherMobileNumber;
+            GrapherSex = retVal.GrapherSex;
+            ProvinceID = retVal.ProvinceID;
+            return retVal.getGrapherProfileByEmailResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherProfileByEmailResponse> getGrapherProfileByEmailAsync(CameRoomWeb.CameRoomService.getGrapherProfileByEmailRequest request) {
+            return base.Channel.getGrapherProfileByEmailAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse CameRoomWeb.CameRoomService.IService.getGrapherEarningRateProfileByGrapherIDandGrapherEmail(CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailRequest request) {
+            return base.Channel.getGrapherEarningRateProfileByGrapherIDandGrapherEmail(request);
+        }
+        
+        public bool getGrapherEarningRateProfileByGrapherIDandGrapherEmail(long GrapherID, int EventTypeID, out string errMsg, out double MorningRate, out double AfternoonRate, out double EveningRate, out double FulldayRate) {
+            CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailRequest inValue = new CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailRequest();
+            inValue.GrapherID = GrapherID;
+            inValue.EventTypeID = EventTypeID;
+            CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).getGrapherEarningRateProfileByGrapherIDandGrapherEmail(inValue);
+            errMsg = retVal.errMsg;
+            MorningRate = retVal.MorningRate;
+            AfternoonRate = retVal.AfternoonRate;
+            EveningRate = retVal.EveningRate;
+            FulldayRate = retVal.FulldayRate;
+            return retVal.getGrapherEarningRateProfileByGrapherIDandGrapherEmailResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse> getGrapherEarningRateProfileByGrapherIDandGrapherEmailAsync(CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailRequest request) {
+            return base.Channel.getGrapherEarningRateProfileByGrapherIDandGrapherEmailAsync(request);
         }
     }
 }
