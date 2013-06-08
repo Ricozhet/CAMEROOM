@@ -106,12 +106,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\GrapherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BookingModel.cs" />
     <Compile Include="Models\GrapherModel.cs" />
     <Compile Include="Models\ProvinceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -150,6 +148,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getGrapherProfileByEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\CameRoomService\Service.disco" />
