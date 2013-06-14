@@ -78,13 +78,13 @@ public class GrapherDL
         return result;
     }
 
-    public bool getGrapherProfileByEmail(out string errMsg, out long GrapherID, out string GrapherName, out string GrapherSurname, out string GrapherPersonalID, 
-        out string GrapherMobileNumber, out string GrapherSex, out int ProvinceID, string GrapherEmail)
+    public bool getGrapherProfileByGrapherID(out string errMsg, out string GrapherEmail, out string GrapherName, out string GrapherSurname, out string GrapherPersonalID, 
+        out string GrapherMobileNumber, out string GrapherSex, out int ProvinceID, long GrapherID)
     {
         bool result = false;
         DataSet ds = new DataSet();
         errMsg = "";
-        GrapherID = 0;
+        GrapherEmail = "";
         GrapherName = "";
         GrapherSurname = "";
         GrapherPersonalID = "";
@@ -96,8 +96,9 @@ public class GrapherDL
         try
         {
             conn.Open();
-            ds = SqlHelper.ExecuteDataset(conn, "cmr_getGrapherProfileByEmail", GrapherEmail);
-            GrapherID = Convert.ToInt64(ds.Tables[0].Rows[0]["GRAPHERID"]);
+            ds = SqlHelper.ExecuteDataset(conn, "cmr_getGrapherProfileByGrapherID", GrapherID);
+            //GrapherID = Convert.ToInt64(ds.Tables[0].Rows[0]["GRAPHERID"]);
+            GrapherEmail = ds.Tables[0].Rows[0]["GRAPHEREMAIL"].ToString();
             GrapherName = ds.Tables[0].Rows[0]["NAME"].ToString();
             GrapherSurname = ds.Tables[0].Rows[0]["SURNAME"].ToString();
             GrapherPersonalID = ds.Tables[0].Rows[0]["PERSONALID"].ToString();
@@ -118,7 +119,7 @@ public class GrapherDL
         return result;
     }
 
-    public bool getGrapherEarningRateProfileByGrapherIDandGrapherEmail(out string errMsg, out double MorningRate, 
+    public bool getGrapherEarningRateProfileByGrapherIDandEventTypeID(out string errMsg, out double MorningRate, 
         out double AfternoonRate, out double EveningRate, out double FulldayRate, long GrapherID, int EventTypeID)
     {
         bool result = false;
@@ -132,7 +133,7 @@ public class GrapherDL
         try
         {
             conn.Open();
-            ds = SqlHelper.ExecuteDataset(conn, "cmr_getGrapherProfileByEmail", GrapherID, EventTypeID);
+            ds = SqlHelper.ExecuteDataset(conn, "cmr_getGrapherEarningRateProfileByGrapherIDandEventTypeID", GrapherID, EventTypeID);
             MorningRate = Convert.ToDouble(ds.Tables[0].Rows[0]["MORNINGRATE"]);
             AfternoonRate = Convert.ToDouble(ds.Tables[0].Rows[0]["AFTERNOONRATE"]);
             EveningRate = Convert.ToDouble(ds.Tables[0].Rows[0]["EVENINGRATE"]);

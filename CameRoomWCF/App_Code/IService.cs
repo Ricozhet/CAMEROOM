@@ -38,11 +38,17 @@ public interface IService
         double EveningRate, double FullDayRate);
 
     [OperationContract]
-    bool getGrapherProfileByEmail(out string errMsg, out long GrapherID, out string GrapherName, out string GrapherSurname, out string GrapherPersonalID,
-        out string GrapherMobileNumber, out string GrapherSex, out int ProvinceID, string GrapherEmail);
+    bool getGrapherProfileByGrapherID(out string errMsg, out string GrapherEmail, out string GrapherName, out string GrapherSurname, out string GrapherPersonalID,
+        out string GrapherMobileNumber, out string GrapherSex, out int ProvinceID, long GrapherID);
+
     [OperationContract]
-    bool getGrapherEarningRateProfileByGrapherIDandGrapherEmail(out string errMsg, out double MorningRate,
+    bool getGrapherEarningRateProfileByGrapherIDandEventTypeID(out string errMsg, out double MorningRate,
         out double AfternoonRate, out double EveningRate, out double FulldayRate, long GrapherID, int EventTypeID);
+    #endregion
+
+    #region Booking
+    [OperationContract]
+    bool getGrapherForBooking(out DataSet ds, out string errMsg, string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID);
     #endregion
 
     // TODO: Add your service operations here

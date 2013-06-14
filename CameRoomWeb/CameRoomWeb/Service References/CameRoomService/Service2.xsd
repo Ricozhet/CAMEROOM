@@ -127,19 +127,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getGrapherProfileByEmail">
+  <xs:element name="getGrapherProfileByGrapherID">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GrapherEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getGrapherProfileByEmailResponse">
+  <xs:element name="getGrapherProfileByGrapherIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="getGrapherProfileByEmailResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="getGrapherProfileByGrapherIDResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
+        <xs:element minOccurs="0" name="GrapherEmail" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="GrapherName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="GrapherSurname" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="GrapherPersonalID" nillable="true" type="xs:string" />
@@ -149,7 +149,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getGrapherEarningRateProfileByGrapherIDandGrapherEmail">
+  <xs:element name="getGrapherEarningRateProfileByGrapherIDandEventTypeID">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
@@ -157,10 +157,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse">
+  <xs:element name="getGrapherEarningRateProfileByGrapherIDandEventTypeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="getGrapherEarningRateProfileByGrapherIDandGrapherEmailResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="getGrapherEarningRateProfileByGrapherIDandEventTypeIDResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="MorningRate" type="xs:double" />
         <xs:element minOccurs="0" name="AfternoonRate" type="xs:double" />
