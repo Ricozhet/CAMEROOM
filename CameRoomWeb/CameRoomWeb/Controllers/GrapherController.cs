@@ -64,9 +64,9 @@ namespace CameRoomWeb.Controllers
         public ActionResult GrapherEdit()
         {
             GrapherEditModel model = new GrapherEditModel();
-            model.GrapherEmail = "twet";
+            model.GrapherID = 25;
             string errMsg = "";
-            long tmpGrapherID = 0;
+            string tmpGrapherEmail = "";
             string tmpGrapherName = "";
             string tmpGrapherSurname = "";
             string tmpGrapherPersonalID = "";
@@ -74,9 +74,10 @@ namespace CameRoomWeb.Controllers
             string tmpGrapherSex = "";
             int tmpProvinceID = 0;
 
-            service.getGrapherProfileByEmail(model.GrapherEmail, out errMsg, out tmpGrapherID, out tmpGrapherName, out tmpGrapherSurname,
+            service.getGrapherProfileByGrapherID(model.GrapherID, out errMsg, out tmpGrapherEmail, out tmpGrapherName, out tmpGrapherSurname,
                 out tmpGrapherPersonalID, out tmpGrapherTelephoneNumber, out tmpGrapherSex, out tmpProvinceID);
-            
+
+            model.GrapherEmail = tmpGrapherEmail;
             model.GrapherName = tmpGrapherName;
             model.GrapherSurname = tmpGrapherSurname;
             model.GrapherPersonalID = tmpGrapherPersonalID;
@@ -90,6 +91,19 @@ namespace CameRoomWeb.Controllers
             {
                 model.GrapherSexDisplay = "Female";
             }
+            //Event Type
+            double tmpMorningRate = 0;
+            double tmpAfternoonRate = 0;
+            double tmpEveningRate = 0;
+            double tmpFulldayRate = 0;
+            model.EventTypeID = 1;
+            service.getGrapherEarningRateProfileByGrapherIDandEventTypeID(model.GrapherID, model.EventTypeID, out errMsg,
+                out tmpMorningRate, out tmpAfternoonRate, out tmpEveningRate, out tmpFulldayRate);
+            model.MorningRate = tmpMorningRate;
+            model.AfternoonRate = tmpAfternoonRate;
+            model.EveningRate = tmpEveningRate;
+            model.FulldayRate = tmpFulldayRate;
+            //Province
             model.ProvinceID = tmpProvinceID;
 
 
