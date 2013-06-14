@@ -8,7 +8,9 @@
 
 @foreach(DataRow dr in Model.SearchGrapher.Tables[0].Rows)
 {
-                <a href="@Url.Action("Details","Booking", new { @id = dr[0] })">
-                <img width="150px" height="150px" alt="company logo" src="@Url.Action("GetLogoImage", "Booking")" />
+                <a href="@Url.Action("GrapherHome","Grapher", new { @id = dr[0] })">
+               @* <img src="@Url.Content("~/Thumbnails/" + dr[1] )" />*@
+                <img src="@Url.Action("GetImage", "Booking", new { id = dr[0] })" alt="@dr[0]" /> 
+               @* <img width="150px" height="150px" alt="company logo" src="@Url.Action("GetLogoImage", "Booking", new { @id = dr[1] })" />*@
                 </a>
 }

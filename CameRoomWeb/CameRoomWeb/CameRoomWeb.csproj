@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -167,7 +167,22 @@
     <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.insertGrapherRegisterResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getGrapherProfileByEmailResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.insertGrapherRegisterMapEarningRateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getGrapherForBookingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getGrapherImageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.insertBookingResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\CameRoomService\Service.disco" />
@@ -200,6 +215,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Booking\Booking.cshtml" />
     <Content Include="Views\Booking\Search.cshtml" />
+    <Content Include="Views\Grapher\GrapherHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

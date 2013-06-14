@@ -201,4 +201,40 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="insertBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingDatetime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bookingTypeID" type="xs:int" />
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+        <xs:element minOccurs="0" name="grapherID" type="xs:int" />
+        <xs:element minOccurs="0" name="eventType" type="xs:int" />
+        <xs:element minOccurs="0" name="provinceID" type="xs:int" />
+        <xs:element minOccurs="0" name="placeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertBookingResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="bookingID" type="xs:long" />
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGrapherImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="grapherID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGrapherImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getGrapherImageResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

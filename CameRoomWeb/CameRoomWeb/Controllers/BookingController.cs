@@ -75,13 +75,13 @@ namespace CameRoomWeb.Controllers
         }
 
         [HttpGet]
-        public FileContentResult GetLogoImage()
+        public FileContentResult GetLogoImage(string id)
         {
             try
             {
                 //AccountDL _UserServices = new AccountDL();
                 string imagetype = "image/jpeg";
-                byte[] _ImgData = GetBytes("");
+                byte[] _ImgData = GetBytes(id);
                 if (_ImgData == null)
                     return null;
                 else
@@ -93,6 +93,12 @@ namespace CameRoomWeb.Controllers
                 //log.Debug("GetLogoImage() : Error occured : " + ex.Message.ToString());
             }
             return null;
+        }
+
+        public ActionResult GetImage(int id)
+        {
+            byte[] image = service.getGrapherImage(id);
+            return File(image, "image/jpg");
         }
 
         static byte[] GetBytes(string str)
