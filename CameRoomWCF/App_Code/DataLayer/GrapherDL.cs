@@ -152,4 +152,154 @@ public class GrapherDL
         return result;
     }
 
+    #region Vesuvius
+    public bool IsAuthenticateForLogOn(out DataSet ds, out string errMsg, string userID, string password)
+    {
+        bool result = false;
+        errMsg = "";
+        ds = null;
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            ds = SqlHelper.ExecuteDataset(conn, "cmr_IsAuthenticate", userID, password);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+            //WriteLog("IsAuthenticateForLogOn (Error) : " + errMsg);
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+    public bool updateLoginFailCount(out int LoginFailCount, out string errMsg, string userID)
+    {
+        bool result = false;
+        LoginFailCount = 0;
+        errMsg = "";
+        DataSet ds = new DataSet();
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            ds = SqlHelper.ExecuteDataset(conn, "ptg_LoginFailCount", userID);
+            try
+            {
+                LoginFailCount = Convert.ToInt16(ds.Tables[0].Rows[0]["LOGINFAILCOUNT"]);
+                result = true;
+            }
+            catch { }
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+            //WriteLog("updateLoginFailCount (Error) : " + errMsg);
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+    public bool getGrapherInfo(string userID, out DataSet ds, out string errMsg)
+    {
+        bool result = false;
+        errMsg = "";
+        ds = new DataSet();
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            ds = SqlHelper.ExecuteDataset(conn, "ptg_getGrapherInfo", userID);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+            //WriteLog("getUserInfo (Error) : " + errMsg);
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+    public bool updatedAuthenGrapher(string userID, string loginIP, string sessionId, out string errMsg)
+    {
+        bool result = false;
+        errMsg = "";
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            SqlHelper.ExecuteNonQuery(conn, "ptg_updatedAuthenGrapher", userID, loginIP, sessionId);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+            //WriteLog("updatedAuthenUser (Error) : " + errMsg);
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+    public bool forceGrapherLogout(string userID, out string errMsg)
+    {
+        bool result = false;
+        errMsg = "";
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            SqlHelper.ExecuteNonQuery(conn, "ptg_ForceGrapherLogout", userID);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+            //WriteLog("forceLogout (Error) : " + errMsg);
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+    public bool LockedGrapher(out string errMsg, string userID)
+    {
+        bool result = false;
+        errMsg = "";
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            SqlHelper.ExecuteNonQuery(conn, "ptg_lockedGrapher", userID);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+            //WriteLog("LockedUser (Error) : " + errMsg);
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+    #endregion
+
 }

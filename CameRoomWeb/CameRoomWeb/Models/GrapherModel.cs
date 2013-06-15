@@ -144,4 +144,16 @@ namespace CameRoomWeb.Models.GrapherModel
             }
         }
     }
+
+    #region Vesuvius
+    public class GrapherLogOn
+    {
+        [Required(ErrorMessage = "*")]
+        public string GrapherEmail { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [DataType(DataType.Password)]
+        public string GrapherPassword { get; set; }
+    }
+    #endregion
 }

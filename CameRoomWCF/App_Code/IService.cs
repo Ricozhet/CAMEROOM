@@ -49,13 +49,20 @@ public interface IService
     #region Booking
     [OperationContract]
     bool getGrapherForBooking(out DataSet ds, out string errMsg, string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID);
-    #endregion
-
-    #region Booking
-    [OperationContract]
-    bool getGrapherForBooking(out DataSet ds, out string errMsg, string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID);
     [OperationContract]
     bool insertBooking(out long bookingID, out string errMsg, string bookingDatetime, int bookingTypeID, int userID, int grapherID, int eventType, int provinceID, int placeID);
+    [OperationContract]
+    bool IsAuthenticateForLogOn(out DataSet ds, out string errMsg, string userID, string password);
+    [OperationContract]
+    bool updateLoginFailCount(out int LoginFailCount, out string errMsg, string userID);
+    [OperationContract]
+    bool getGrapherInfo(string userID, out DataSet ds, out string errMsg);
+    [OperationContract]
+    bool updatedAuthenGrapher(string userID, string loginIP, string sessionId, out string errMsg);
+    [OperationContract]
+    bool forceGrapherLogout(string userID, out string errMsg);
+    [OperationContract]
+    bool LockedGrapher(out string errMsg, string userID);
     #endregion
 
     #region MiscellaneousDL

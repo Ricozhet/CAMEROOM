@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace CameRoomWeb.Utilities
 {
-    public class Utility
+    public static class Utility
     {
         public static System.Web.Mvc.SelectList DT2SelectList(DataTable dt, string valueField, string textField)
         {
@@ -43,6 +43,11 @@ namespace CameRoomWeb.Utilities
                 dt = ds.Tables[0];
                 return DT2SelectList(dt, "PLACEID", "PLACENAME");
             }
+        }
+
+        public static void With<T>(this T item, Action<T> work)
+        {
+            work(item);
         }
     }
 

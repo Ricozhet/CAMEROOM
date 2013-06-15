@@ -23,7 +23,6 @@ D:\Github\CameRoom\CameRoomWeb\CameRoomWeb\bin\System.Web.WebPages.Deployment.xm
 D:\Github\CameRoom\CameRoomWeb\CameRoomWeb\bin\System.Web.WebPages.Razor.xml
 D:\Github\CameRoom\CameRoomWeb\CameRoomWeb\obj\Debug\CameRoomWeb.dll
 D:\Github\CameRoom\CameRoomWeb\CameRoomWeb\obj\Debug\CameRoomWeb.pdb
-D:\Github\CameRoom\CameRoomWeb\CameRoomWeb\obj\Debug\CameRoomWeb.csprojResolveAssemblyReference.cache
 C:\GitHub\Cameroom\CameRoomWeb\CameRoomWeb\bin\CameRoomWeb.dll
 C:\GitHub\Cameroom\CameRoomWeb\CameRoomWeb\bin\CameRoomWeb.pdb
 C:\GitHub\Cameroom\CameRoomWeb\CameRoomWeb\bin\Microsoft.Web.Infrastructure.dll
@@ -50,3 +49,4 @@ C:\GitHub\Cameroom\CameRoomWeb\CameRoomWeb\bin\System.Web.WebPages.Razor.xml
 C:\GitHub\Cameroom\CameRoomWeb\CameRoomWeb\obj\Debug\CameRoomWeb.dll
 C:\GitHub\Cameroom\CameRoomWeb\CameRoomWeb\obj\Debug\CameRoomWeb.pdb
 C:\GitHub\Cameroom\CameRoomWeb\CameRoomWeb\obj\Debug\CameRoomWeb.csprojResolveAssemblyReference.cache
+D:\Github\CameRoom\CameRoomWeb\CameRoomWeb\obj\Debug\CameRoomWeb.csprojResolveAssemblyReference.cache

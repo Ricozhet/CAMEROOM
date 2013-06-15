@@ -33,25 +33,35 @@ public interface IService
     bool insertGrapherRegister(out string errMsg, out long GrapherID, string GrapherEmail, string GrapherName, string GrapherSurname,
     string GrapherPersonalID, byte[] GrapherPhoto, string GrapherMobileNumber, string GrapherSex, string Password, int ProvinceID);
 
-<<<<<<< HEAD
-    #region Booking
-    [OperationContract]
-    bool getGrapherForBooking(out DataSet ds, out string errMsg, string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID);
-=======
     [OperationContract]
     bool insertGrapherRegisterMapEarningRate(out string errMsg, long GrapherID, int EventTypeID, double MorningRate, double AfternoonRate,
         double EveningRate, double FullDayRate);
 
     [OperationContract]
-    bool getGrapherProfileByEmail(out string errMsg, out long GrapherID, out string GrapherName, out string GrapherSurname, out string GrapherPersonalID,
-        out string GrapherMobileNumber, out string GrapherSex, out int ProvinceID, string GrapherEmail);
+    bool getGrapherProfileByGrapherID(out string errMsg, out string GrapherEmail, out string GrapherName, out string GrapherSurname, out string GrapherPersonalID,
+        out string GrapherMobileNumber, out string GrapherSex, out int ProvinceID, long GrapherID);
 
     [OperationContract]
-    bool getGrapherEarningRateProfileByGrapherIDandGrapherEmail(out string errMsg, out double MorningRate,
+    bool getGrapherEarningRateProfileByGrapherIDandEventTypeID(out string errMsg, out double MorningRate,
         out double AfternoonRate, out double EveningRate, out double FulldayRate, long GrapherID, int EventTypeID);
->>>>>>> 377171120234b148d4193840a048c7c8b59d84c0
     #endregion
 
+    #region Booking
+    [OperationContract]
+    bool getGrapherForBooking(out DataSet ds, out string errMsg, string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID);
+<<<<<<< HEAD
+    [OperationContract]
+    bool insertBooking(out long bookingID, out string errMsg, string bookingDatetime, int bookingTypeID, int userID, int grapherID, int eventType, int provinceID, int placeID);
+    #endregion
+
+    #region MiscellaneousDL
+    [OperationContract]
+    Byte[] getGrapherImage(int grapherID);
+    #endregion
+=======
+    #endregion
+
+>>>>>>> 12e81069efad707bb9c832b55d1506be8af85d5f
     // TODO: Add your service operations here
 }
 

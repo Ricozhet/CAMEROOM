@@ -80,6 +80,40 @@ public class Service : IService
         out AfternoonRate, out EveningRate, out FulldayRate, GrapherID, EventTypeID);
     }
 
+    public bool IsAuthenticateForLogOn(out DataSet ds, out string errMsg, string userID, string password)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.IsAuthenticateForLogOn(out ds, out errMsg, userID, password);
+    }
+
+    public bool updateLoginFailCount(out int LoginFailCount, out string errMsg, string userID)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.updateLoginFailCount(out LoginFailCount, out errMsg, userID);
+    }
+
+    public bool getGrapherInfo(string userID, out DataSet ds, out string errMsg)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.getGrapherInfo(userID, out ds, out errMsg);
+    }
+
+    public bool updatedAuthenGrapher(string userID, string loginIP, string sessionId, out string errMsg)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.updatedAuthenGrapher(userID, loginIP, sessionId, out errMsg);
+    }
+
+    public bool forceGrapherLogout(string userID, out string errMsg)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.forceGrapherLogout(userID, out errMsg);
+    }
+    public bool LockedGrapher(out string errMsg, string userID)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.LockedGrapher(out errMsg, userID);
+    }
     #endregion
 
     #region Booking

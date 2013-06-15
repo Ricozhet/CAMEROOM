@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using CameRoomWeb.Models.BookingModel;
+using CameRoomWeb.Utilities;
+using CameRoomWeb.Enumeric;
 
 namespace CameRoomWeb.Controllers
 {
@@ -14,6 +16,7 @@ namespace CameRoomWeb.Controllers
     {
         //
         // GET: /Grapher/
+        private Service.GrapherService _grapherService = new Service.GrapherService();
         CameRoomService.ServiceClient service = new CameRoomService.ServiceClient();
         public ActionResult Index()
         {
@@ -127,14 +130,64 @@ namespace CameRoomWeb.Controllers
             Booking model = new Booking();
             model = (Booking)Session["BookingModel"];
             model.userID = 2;
+            SendMail.sendEmail("peerawatkung@gmail.com", "TEST SUBJECT", "KAK", out errMsg);
             service.insertBooking(model.bookingDatetime, Convert.ToInt32(model.bookingType), model.userID, model.grapherID, Convert.ToInt32(model.eventTypeID), model.ProvinceID, Convert.ToInt32(model.PlaceID), out tmpID, out errMsg);
             Session["BookingModel"] = model;
             return View();
         }
-        //[HttpPost]
-        //public ActionResult GrapherEdit()
-        //{
-        //    return View();
-        //}
+
+        #region Vesuvius
+        public ActionResult GrapherLogOn()
+        {
+            var model = new GrapherLogOn();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult GrapherLogOn(GrapherLogOn model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                Encrypt encrypt = new Encrypt();
+                string saltkey = "";
+                saltkey = _grapherService.getPasswordSalt(model.GrapherEmail);
+                model.GrapherPassword = encrypt.ComputeHash(model.GrapherPassword, saltkey);
+
+                string msg = "";
+                LogOnResultType resultType = _grapherService.CheckAuthenticate(model.GrapherEmail, model.GrapherPassword, out msg);
+
+                switch (resultType)
+                {
+                    case LogOnResultType.SUCCESS:   //Login success
+                        if (!string.IsNullOrEmpty(returnUrl))
+                        {
+                            return Redirect(returnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("GrapherRegister", "Grapher");
+                        }
+                    //case LogOnResultType.PASSWORDEXPIRED:   //Password expired.
+                    //    return RedirectToAction("PasswordExpired", "User");
+                    //case LogOnResultType.USEREXPIRED:       //User Expired.
+                    //    ModelState.AddModelError("", msg);
+                    //    break;
+                    case LogOnResultType.USERLOCKED:        //User Locked.
+                        ModelState.AddModelError("", msg);
+                        break;
+                    case LogOnResultType.FAILED:            //Login failed.
+                        ModelState.AddModelError("", msg);
+                        break;
+                    default: break;
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "[ VALIDATION FAILED ].");
+            }
+
+            return View(model);
+        }
+        #endregion
     }
 }

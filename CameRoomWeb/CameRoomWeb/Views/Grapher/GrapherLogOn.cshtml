@@ -1,0 +1,72 @@
+﻿@model CameRoomWeb.Models.GrapherModel.GrapherLogOn
+
+@{
+    ViewBag.Title = "GrapherLogOn";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($("input[class='input-validation-error']").first().length == 0) {
+            $("#UserName").focus();
+        } else {
+            $("input[class='input-validation-error']").first().focus();
+        }
+    });
+
+    function ShowLoading_logOn() {
+
+        if (document.getElementById("ErrUserName").length == 0) {
+            document.getElementById("loadingdiv").style.display = "block";
+        }
+        else {
+
+            document.getElementById("loadingdiv").style.display = "none";
+        }
+    }
+</script>
+
+<h2>GrapherLogOn</h2>
+
+@using (Html.BeginForm())
+{
+    <div style="float:left;width:350px;height:100%;" id="divUpdate">
+    <table class="tableLogin" cellpadding="3px">
+        <tr>
+            <td colspan="3"><label>Your e-mail address :</label></td>
+        </tr>
+        <tr>
+            <td colspan="3">        
+                @Html.TextBoxFor(model => model.GrapherEmail, new { style = "width:220px;" })
+                <label id="ErrUserName">@Html.ValidationMessageFor(model => model.GrapherEmail)</label>
+            </td>
+        </tr>
+        <tr >
+            <td colspan="3" style="padding-top:7px;">
+                <label>Password :</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" >        
+                @Html.PasswordFor(model => model.GrapherPassword, new { style = "width:220px;" })
+                <label id="ErrPassword">@Html.ValidationMessageFor(model => model.GrapherPassword)</label>
+            </td>
+        </tr>
+    </table>
+    <table style="margin-left:5px; margin-top:10px;">
+        <tr>
+            <td style="width:250px;">
+                Forgot your password?@Html.ActionLink(" Click here","ForgotPassword") 
+            </td>
+            <td align="left" style="padding-left:27px;" >
+                <input type="submit" value="Login" class="btn-small" style="width:83px;" onclick="ShowLoading_logOn();" />
+                <div id="loadingdiv" style="display:none;margin-left:10px;">
+                    <img id="imgloading" src="@Href("~/images/loading.gif")" alt="" />
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align:left;font-size:11px;">@Html.ValidationSummary(true)</div>
+    </div>
+}

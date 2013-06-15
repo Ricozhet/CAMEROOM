@@ -44,17 +44,17 @@
   <wsdl:message name="IService_insertGrapherRegisterMapEarningRate_OutputMessage">
     <wsdl:part name="parameters" element="tns:insertGrapherRegisterMapEarningRateResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_getGrapherProfileByEmail_InputMessage">
-    <wsdl:part name="parameters" element="tns:getGrapherProfileByEmail" />
+  <wsdl:message name="IService_getGrapherProfileByGrapherID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherProfileByGrapherID" />
   </wsdl:message>
-  <wsdl:message name="IService_getGrapherProfileByEmail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getGrapherProfileByEmailResponse" />
+  <wsdl:message name="IService_getGrapherProfileByGrapherID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherProfileByGrapherIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_getGrapherEarningRateProfileByGrapherIDandGrapherEmail_InputMessage">
-    <wsdl:part name="parameters" element="tns:getGrapherEarningRateProfileByGrapherIDandGrapherEmail" />
+  <wsdl:message name="IService_getGrapherEarningRateProfileByGrapherIDandEventTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherEarningRateProfileByGrapherIDandEventTypeID" />
   </wsdl:message>
-  <wsdl:message name="IService_getGrapherEarningRateProfileByGrapherIDandGrapherEmail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse" />
+  <wsdl:message name="IService_getGrapherEarningRateProfileByGrapherIDandEventTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherEarningRateProfileByGrapherIDandEventTypeIDResponse" />
   </wsdl:message>
   <wsdl:message name="IService_getGrapherForBooking_InputMessage">
     <wsdl:part name="parameters" element="tns:getGrapherForBooking" />
@@ -67,6 +67,42 @@
   </wsdl:message>
   <wsdl:message name="IService_insertBooking_OutputMessage">
     <wsdl:part name="parameters" element="tns:insertBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsAuthenticateForLogOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAuthenticateForLogOn" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsAuthenticateForLogOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAuthenticateForLogOnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateLoginFailCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateLoginFailCount" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateLoginFailCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateLoginFailCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getGrapherInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherInfo" />
+  </wsdl:message>
+  <wsdl:message name="IService_getGrapherInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updatedAuthenGrapher_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatedAuthenGrapher" />
+  </wsdl:message>
+  <wsdl:message name="IService_updatedAuthenGrapher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatedAuthenGrapherResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_forceGrapherLogout_InputMessage">
+    <wsdl:part name="parameters" element="tns:forceGrapherLogout" />
+  </wsdl:message>
+  <wsdl:message name="IService_forceGrapherLogout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:forceGrapherLogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LockedGrapher_InputMessage">
+    <wsdl:part name="parameters" element="tns:LockedGrapher" />
+  </wsdl:message>
+  <wsdl:message name="IService_LockedGrapher_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LockedGrapherResponse" />
   </wsdl:message>
   <wsdl:message name="IService_getGrapherImage_InputMessage">
     <wsdl:part name="parameters" element="tns:getGrapherImage" />
@@ -99,13 +135,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/insertGrapherRegisterMapEarningRate" message="tns:IService_insertGrapherRegisterMapEarningRate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/insertGrapherRegisterMapEarningRateResponse" message="tns:IService_insertGrapherRegisterMapEarningRate_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getGrapherProfileByEmail">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherProfileByEmail" message="tns:IService_getGrapherProfileByEmail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherProfileByEmailResponse" message="tns:IService_getGrapherProfileByEmail_OutputMessage" />
+    <wsdl:operation name="getGrapherProfileByGrapherID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherProfileByGrapherID" message="tns:IService_getGrapherProfileByGrapherID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherProfileByGrapherIDResponse" message="tns:IService_getGrapherProfileByGrapherID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getGrapherEarningRateProfileByGrapherIDandGrapherEmail">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmail" message="tns:IService_getGrapherEarningRateProfileByGrapherIDandGrapherEmail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse" message="tns:IService_getGrapherEarningRateProfileByGrapherIDandGrapherEmail_OutputMessage" />
+    <wsdl:operation name="getGrapherEarningRateProfileByGrapherIDandEventTypeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandEventTypeID" message="tns:IService_getGrapherEarningRateProfileByGrapherIDandEventTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandEventTypeIDResponse" message="tns:IService_getGrapherEarningRateProfileByGrapherIDandEventTypeID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getGrapherForBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherForBooking" message="tns:IService_getGrapherForBooking_InputMessage" />
@@ -114,6 +150,30 @@
     <wsdl:operation name="insertBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/insertBooking" message="tns:IService_insertBooking_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/insertBookingResponse" message="tns:IService_insertBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAuthenticateForLogOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/IsAuthenticateForLogOn" message="tns:IService_IsAuthenticateForLogOn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/IsAuthenticateForLogOnResponse" message="tns:IService_IsAuthenticateForLogOn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateLoginFailCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updateLoginFailCount" message="tns:IService_updateLoginFailCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updateLoginFailCountResponse" message="tns:IService_updateLoginFailCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getGrapherInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherInfo" message="tns:IService_getGrapherInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherInfoResponse" message="tns:IService_getGrapherInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatedAuthenGrapher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updatedAuthenGrapher" message="tns:IService_updatedAuthenGrapher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updatedAuthenGrapherResponse" message="tns:IService_updatedAuthenGrapher_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="forceGrapherLogout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/forceGrapherLogout" message="tns:IService_forceGrapherLogout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/forceGrapherLogoutResponse" message="tns:IService_forceGrapherLogout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LockedGrapher">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LockedGrapher" message="tns:IService_LockedGrapher_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LockedGrapherResponse" message="tns:IService_LockedGrapher_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getGrapherImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherImage" message="tns:IService_getGrapherImage_InputMessage" />
@@ -176,8 +236,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getGrapherProfileByEmail">
-      <soap:operation soapAction="http://tempuri.org/IService/getGrapherProfileByEmail" style="document" />
+    <wsdl:operation name="getGrapherProfileByGrapherID">
+      <soap:operation soapAction="http://tempuri.org/IService/getGrapherProfileByGrapherID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -185,8 +245,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getGrapherEarningRateProfileByGrapherIDandGrapherEmail">
-      <soap:operation soapAction="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmail" style="document" />
+    <wsdl:operation name="getGrapherEarningRateProfileByGrapherIDandEventTypeID">
+      <soap:operation soapAction="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandEventTypeID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -205,6 +265,60 @@
     </wsdl:operation>
     <wsdl:operation name="insertBooking">
       <soap:operation soapAction="http://tempuri.org/IService/insertBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAuthenticateForLogOn">
+      <soap:operation soapAction="http://tempuri.org/IService/IsAuthenticateForLogOn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLoginFailCount">
+      <soap:operation soapAction="http://tempuri.org/IService/updateLoginFailCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrapherInfo">
+      <soap:operation soapAction="http://tempuri.org/IService/getGrapherInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatedAuthenGrapher">
+      <soap:operation soapAction="http://tempuri.org/IService/updatedAuthenGrapher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="forceGrapherLogout">
+      <soap:operation soapAction="http://tempuri.org/IService/forceGrapherLogout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockedGrapher">
+      <soap:operation soapAction="http://tempuri.org/IService/LockedGrapher" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
