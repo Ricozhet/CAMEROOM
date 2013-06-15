@@ -119,10 +119,13 @@ namespace CameRoomWeb.Models.GrapherModel
         public string GrapherSex { get; set; }
         public string GrapherSexDisplay { get; set; }
         public int EventTypeID { get; set; }
-        public double MorningRate { get; set; }
-        public double AfternoonRate { get; set; }
-        public double EveningRate { get; set; }
-        public double FulldayRate { get; set; }
+        //public double MorningRate { get; set; }
+        //public double AfternoonRate { get; set; }
+        //public double EveningRate { get; set; }
+        //public double FulldayRate { get; set; }
+        public double[] EarningRateCongratulation { get; set; }
+        public double[] EarningRateWedding { get; set; }
+        public double[] EarningRateOther { get; set; }
         public int ProvinceID { get; set; }
         private CameRoomService.ServiceClient _cmrWS = new CameRoomService.ServiceClient();
         public IEnumerable<SelectListItem> listProvince

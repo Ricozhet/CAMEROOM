@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 
@@ -44,7 +45,52 @@ namespace CameRoomWeb.Utilities
                 return DT2SelectList(dt, "PLACEID", "PLACENAME");
             }
         }
+          public string GetNewSaltKey()
+        {
+            // Define min and max salt sizes.
+            int minSaltSize = 4;
+            int maxSaltSize = 8;
+            byte[] saltBytes = null;
+            string saltkey = "";
+
+            try
+            {
+                // Generate a random number for the size of the salt.
+                Random random = new Random();
+                int saltSize = random.Next(minSaltSize, maxSaltSize);
+
+                // Allocate a byte array, which will
+                saltBytes = new byte[saltSize];
+
+                // Initialize a random number generator.
+                RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+
+                // Fill the salt with cryptographically strong byte values.
+                rng.GetNonZeroBytes(saltBytes);
+
+                saltkey = ConvertSaltKey(saltBytes);
+            }
+            catch
+            {
+                throw;
+            }
+
+            return saltkey;
+        }
+        public string ConvertSaltKey(byte[] saltBytes)
+        {
+              string base64SaltKey = "";
+
+              try
+              {
+                  base64SaltKey = Convert.ToBase64String(saltBytes);
+              }
+              catch
+              {
+                  throw;
+              }
+
+              return base64SaltKey;
+        }
     }
-
-
 }
