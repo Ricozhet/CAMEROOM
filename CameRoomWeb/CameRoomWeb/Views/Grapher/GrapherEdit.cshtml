@@ -8,6 +8,17 @@
 <head>
 <meta name="viewport" content="width=device-width" />
 <title>Grapher Edit</title>
+<script type="text/javascript">
+        function EventTypeClicked1(sender) {
+            document.getElementById('congratprice').style.display = sender.checked ? 'block' : 'none';
+        }
+        function EventTypeClicked2(sender) {
+            document.getElementById('weddingprice').style.display = sender.checked ? 'block' : 'none';
+        }
+        function EventTypeClicked3(sender) {
+            document.getElementById('otherprice').style.display = sender.checked ? 'block' : 'none';
+        }
+</script>
 </head>
 <body>
 <h2>Edit</h2>
@@ -51,8 +62,98 @@
         </tr>
         <tr>
             <td>Event Type</td>
+            @if (Model.EarningRateCongratulation[0] > 0)
+            {
+                <td><input type="checkbox" checked="checked" id="CheckBox1" name="CongratType" value="1" runat="server" onclick="EventTypeClicked1(this)" >Congratulation
+                <div id="congratprice" style="display: block">
+                    Morning:
+                    @Html.TextBoxFor(x => x.EarningRateCongratulation[1]) &nbsp&nbsp
+                    Afternoon
+                    @Html.TextBoxFor(x => x.EarningRateCongratulation[2]) &nbsp&nbsp
+                    Fullday
+                    @Html.TextBoxFor(x => x.EarningRateCongratulation[4]) &nbsp&nbsp
+                </div>
+                </td>
+            }
+            else
+            { 
+                <td><input type="checkbox" id="CheckBox1" name="CongratType" value="1" runat="server" onclick="EventTypeClicked1(this)" >Congratulation
+                <div id="congratprice" style="display: none">
+                    Morning:
+                    @Html.TextBoxFor(x => x.EarningRateCongratulation[1]) &nbsp&nbsp
+                    Afternoon
+                    @Html.TextBoxFor(x => x.EarningRateCongratulation[2]) &nbsp&nbsp
+                    Fullday
+                    @Html.TextBoxFor(x => x.EarningRateCongratulation[4]) &nbsp&nbsp
+                </div>
+                </td>
+            }
+        </tr>
+        <tr>
             <td></td>
+            @if (Model.EarningRateWedding[0] > 0)
+            {
+                <td><input type="checkbox" checked="checked" id="CheckBox2" name="WeddingType" value="1" runat="server" onclick="EventTypeClicked2(this)" >Wedding
+                <div id="weddingprice" style="display: block">
+                    Morning:
+                    @Html.TextBoxFor(x => x.EarningRateWedding[1]) &nbsp&nbsp
+                    Afternoon
+                    @Html.TextBoxFor(x => x.EarningRateWedding[2]) &nbsp&nbsp
+                    Evening
+                    @Html.TextBoxFor(x => x.EarningRateWedding[3]) &nbsp&nbsp
+                    Fullday
+                    @Html.TextBoxFor(x => x.EarningRateWedding[4]) &nbsp&nbsp
+                </div>
+                </td>
+            }
+            else
+            { 
+                <td><input type="checkbox" id="CheckBox2" name="WeddingType" value="1" runat="server" onclick="EventTypeClicked2(this)" >Wedding
+                <div id="weddingprice" style="display: none">
+                    Morning:
+                    @Html.TextBoxFor(x => x.EarningRateWedding[1]) &nbsp&nbsp
+                    Afternoon
+                    @Html.TextBoxFor(x => x.EarningRateWedding[2]) &nbsp&nbsp
+                    Evening
+                    @Html.TextBoxFor(x => x.EarningRateWedding[3]) &nbsp&nbsp
+                    Fullday
+                    @Html.TextBoxFor(x => x.EarningRateWedding[4]) &nbsp&nbsp
+                </div>
+                </td>
+            }
+        </tr>
+        <tr>
             <td></td>
+            @if (Model.EarningRateOther[0] > 0)
+            {
+                <td><input type="checkbox" checked="checked" id="CheckBox3" name="OtherType" value="1" runat="server" onclick="EventTypeClicked3(this)" >Other
+                <div id="otherprice" style="display: block">
+                    Morning:
+                    @Html.TextBoxFor(x => x.EarningRateOther[1]) &nbsp&nbsp
+                    Afternoon
+                    @Html.TextBoxFor(x => x.EarningRateOther[2]) &nbsp&nbsp
+                    Evening
+                    @Html.TextBoxFor(x => x.EarningRateOther[3]) &nbsp&nbsp
+                    Fullday
+                    @Html.TextBoxFor(x => x.EarningRateOther[4]) &nbsp&nbsp
+                </div>
+                </td>
+            }
+            else
+            { 
+                <td><input type="checkbox" id="CheckBox3" name="OtherType" value="1" runat="server" onclick="EventTypeClicked3(this)" >Other
+                <div id="otherprice" style="display: none">
+                    Morning:
+                    @Html.TextBoxFor(x => x.EarningRateOther[1]) &nbsp&nbsp
+                    Afternoon
+                    @Html.TextBoxFor(x => x.EarningRateOther[2]) &nbsp&nbsp
+                    Evening
+                    @Html.TextBoxFor(x => x.EarningRateOther[3]) &nbsp&nbsp
+                    Fullday
+                    @Html.TextBoxFor(x => x.EarningRateOther[4]) &nbsp&nbsp
+                </div>
+                </td>
+            }
         </tr>
         <tr>
             <td>Province</td>

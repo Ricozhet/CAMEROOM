@@ -99,17 +99,49 @@ namespace CameRoomWeb.Controllers
             double tmpAfternoonRate = 0;
             double tmpEveningRate = 0;
             double tmpFulldayRate = 0;
-            model.EventTypeID = 1;
-            service.getGrapherEarningRateProfileByGrapherIDandEventTypeID(model.GrapherID, model.EventTypeID, out errMsg,
-                out tmpMorningRate, out tmpAfternoonRate, out tmpEveningRate, out tmpFulldayRate);
-            model.MorningRate = tmpMorningRate;
-            model.AfternoonRate = tmpAfternoonRate;
-            model.EveningRate = tmpEveningRate;
-            model.FulldayRate = tmpFulldayRate;
+            double[,] tmpEarningRate = new double[3,5];
+            model.EarningRateCongratulation = new double[5];
+            model.EarningRateWedding = new double[5];
+            model.EarningRateOther = new double[5];
+            //model.EventTypeID = 1;
+            for (int iCount = 1; iCount <= 3; iCount++)
+            {
+                model.EventTypeID = iCount;
+                if (!service.getGrapherEarningRateProfileByGrapherIDandEventTypeID(model.GrapherID, model.EventTypeID, out errMsg,
+                out tmpMorningRate, out tmpAfternoonRate, out tmpEveningRate, out tmpFulldayRate))
+                {
+                    for (int j = 0; j <= 4; j++)
+                    { 
+                        tmpEarningRate[iCount -1, j] = 0;
+                    }
+                }
+                else
+                {
+                    //model.EarningRateCongratulation[0] = iCount;
+                    //model.MorningRate = tmpMorningRate;
+                    //model.AfternoonRate = tmpAfternoonRate;
+                    //model.EveningRate = tmpEveningRate;
+                    //model.FulldayRate = tmpFulldayRate;
+                    tmpEarningRate[iCount - 1, 0] = iCount;
+                    tmpEarningRate[iCount - 1, 1] = tmpMorningRate;
+                    tmpEarningRate[iCount - 1, 2] = tmpAfternoonRate;
+                    tmpEarningRate[iCount - 1, 3] = tmpEveningRate;
+                    tmpEarningRate[iCount - 1, 4] = tmpFulldayRate;
+                }
+
+                //for (int y = 0; y <= 4; y++)
+                //{
+                //    model.EarningRate[iCount - 1, y] = tmpEarningRate[iCount - 1, y];
+                //}
+                for (int y = 0; y <= 4; y++)
+                {
+                    model.EarningRateCongratulation[y] = tmpEarningRate[0, y];
+                    model.EarningRateWedding[y] = tmpEarningRate[1,y];
+                    model.EarningRateOther[y] = tmpEarningRate[2,y];
+                }
+            }
             //Province
             model.ProvinceID = tmpProvinceID;
-
-
             return View(model);
         }
 
