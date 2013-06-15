@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using CameRoomWeb.Models.BookingModel;
 
 namespace CameRoomWeb.Controllers
 {
@@ -141,6 +142,27 @@ namespace CameRoomWeb.Controllers
             return View(model);
         }
 
+        public ActionResult GrapherHome(int id)
+        {
+            Booking model = new Booking();
+            model = (Booking)Session["BookingModel"];
+            model.grapherID = id;
+            Session["BookingModel"] = model;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GrapherHome()
+        {
+            string errMsg = "";
+            long tmpID = Convert.ToInt64(0);
+            Booking model = new Booking();
+            model = (Booking)Session["BookingModel"];
+            model.userID = 2;
+            service.insertBooking(model.bookingDatetime, Convert.ToInt32(model.bookingType), model.userID, model.grapherID, Convert.ToInt32(model.eventTypeID), model.ProvinceID, Convert.ToInt32(model.PlaceID), out tmpID, out errMsg);
+            Session["BookingModel"] = model;
+            return View();
+        }
         //[HttpPost]
         //public ActionResult GrapherEdit()
         //{

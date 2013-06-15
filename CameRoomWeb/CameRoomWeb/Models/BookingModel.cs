@@ -19,7 +19,7 @@ namespace CameRoomWeb.Models.BookingModel
         public string bookingDatetime { get; set; }
         public string bookingType { get; set; }
         public string eventTypeID { get; set; }
-        public long userID { get; set; }
+        public int userID { get; set; }
         public string provinceName { get; set; }
         public string BookingDate { get; set; }
         public IEnumerable<SelectListItem> ListDay
@@ -119,6 +119,7 @@ namespace CameRoomWeb.Models.BookingModel
         public string PlaceID { get; set; }
         public string placeName { get; set; }
         public IEnumerable<SelectListItem> ListPlace { get; set; }
+        public int grapherID { get; set; }
         public DataSet SearchGrapher { get; set; }
     }
 }

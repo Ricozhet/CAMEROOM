@@ -106,5 +106,54 @@ public class Service : IService
         }
         return result;
     }
+
+    public bool insertBooking(out long bookingID, out string errMsg, string bookingDatetime, int bookingTypeID, int userID, int grapherID, int eventType, int provinceID, int placeID)
+    {
+        bool result = false;
+        DataSet ds = new DataSet();
+        errMsg = "";
+        bookingID = 0;
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            ds = SqlHelper.ExecuteDataset(conn, "cmr_insertBooking", bookingDatetime, bookingTypeID, userID, grapherID, eventType, provinceID, placeID);
+            bookingID = Convert.ToInt64(ds.Tables[0].Rows[0][0]);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+    #endregion
+
+    #region MiscellaneousDL
+    public Byte[] getGrapherImage(int grapherID)
+        {
+            DataSet ds = null;
+            byte[] _ImgData = null;
+            SqlConnection conn = dbh.getConnection();
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(conn, "cmr_getGrapherPhotoByID", grapherID);
+                if (ds != null)
+                {
+                    if (ds.Tables[0].Rows[0]["PHOTO"].ToString() == "") return null;
+                    _ImgData = (Byte[])ds.Tables[0].Rows[0]["PHOTO"];
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            return _ImgData;
+        }
     #endregion
 }

@@ -44,23 +44,35 @@
   <wsdl:message name="IService_insertGrapherRegisterMapEarningRate_OutputMessage">
     <wsdl:part name="parameters" element="tns:insertGrapherRegisterMapEarningRateResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_getGrapherProfileByGrapherID_InputMessage">
-    <wsdl:part name="parameters" element="tns:getGrapherProfileByGrapherID" />
+  <wsdl:message name="IService_getGrapherProfileByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherProfileByEmail" />
   </wsdl:message>
-  <wsdl:message name="IService_getGrapherProfileByGrapherID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getGrapherProfileByGrapherIDResponse" />
+  <wsdl:message name="IService_getGrapherProfileByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherProfileByEmailResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_getGrapherEarningRateProfileByGrapherIDandEventTypeID_InputMessage">
-    <wsdl:part name="parameters" element="tns:getGrapherEarningRateProfileByGrapherIDandEventTypeID" />
+  <wsdl:message name="IService_getGrapherEarningRateProfileByGrapherIDandGrapherEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherEarningRateProfileByGrapherIDandGrapherEmail" />
   </wsdl:message>
-  <wsdl:message name="IService_getGrapherEarningRateProfileByGrapherIDandEventTypeID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getGrapherEarningRateProfileByGrapherIDandEventTypeIDResponse" />
+  <wsdl:message name="IService_getGrapherEarningRateProfileByGrapherIDandGrapherEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse" />
   </wsdl:message>
   <wsdl:message name="IService_getGrapherForBooking_InputMessage">
     <wsdl:part name="parameters" element="tns:getGrapherForBooking" />
   </wsdl:message>
   <wsdl:message name="IService_getGrapherForBooking_OutputMessage">
     <wsdl:part name="parameters" element="tns:getGrapherForBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertBooking" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getGrapherImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherImage" />
+  </wsdl:message>
+  <wsdl:message name="IService_getGrapherImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGrapherImageResponse" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetData">
@@ -87,17 +99,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/insertGrapherRegisterMapEarningRate" message="tns:IService_insertGrapherRegisterMapEarningRate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/insertGrapherRegisterMapEarningRateResponse" message="tns:IService_insertGrapherRegisterMapEarningRate_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getGrapherProfileByGrapherID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherProfileByGrapherID" message="tns:IService_getGrapherProfileByGrapherID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherProfileByGrapherIDResponse" message="tns:IService_getGrapherProfileByGrapherID_OutputMessage" />
+    <wsdl:operation name="getGrapherProfileByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherProfileByEmail" message="tns:IService_getGrapherProfileByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherProfileByEmailResponse" message="tns:IService_getGrapherProfileByEmail_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getGrapherEarningRateProfileByGrapherIDandEventTypeID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandEventTypeID" message="tns:IService_getGrapherEarningRateProfileByGrapherIDandEventTypeID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandEventTypeIDResponse" message="tns:IService_getGrapherEarningRateProfileByGrapherIDandEventTypeID_OutputMessage" />
+    <wsdl:operation name="getGrapherEarningRateProfileByGrapherIDandGrapherEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmail" message="tns:IService_getGrapherEarningRateProfileByGrapherIDandGrapherEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmailResponse" message="tns:IService_getGrapherEarningRateProfileByGrapherIDandGrapherEmail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getGrapherForBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherForBooking" message="tns:IService_getGrapherForBooking_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherForBookingResponse" message="tns:IService_getGrapherForBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/insertBooking" message="tns:IService_insertBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/insertBookingResponse" message="tns:IService_insertBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getGrapherImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getGrapherImage" message="tns:IService_getGrapherImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getGrapherImageResponse" message="tns:IService_getGrapherImage_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -156,8 +176,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getGrapherProfileByGrapherID">
-      <soap:operation soapAction="http://tempuri.org/IService/getGrapherProfileByGrapherID" style="document" />
+    <wsdl:operation name="getGrapherProfileByEmail">
+      <soap:operation soapAction="http://tempuri.org/IService/getGrapherProfileByEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -165,8 +185,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getGrapherEarningRateProfileByGrapherIDandEventTypeID">
-      <soap:operation soapAction="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandEventTypeID" style="document" />
+    <wsdl:operation name="getGrapherEarningRateProfileByGrapherIDandGrapherEmail">
+      <soap:operation soapAction="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandGrapherEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -176,6 +196,24 @@
     </wsdl:operation>
     <wsdl:operation name="getGrapherForBooking">
       <soap:operation soapAction="http://tempuri.org/IService/getGrapherForBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertBooking">
+      <soap:operation soapAction="http://tempuri.org/IService/insertBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrapherImage">
+      <soap:operation soapAction="http://tempuri.org/IService/getGrapherImage" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
