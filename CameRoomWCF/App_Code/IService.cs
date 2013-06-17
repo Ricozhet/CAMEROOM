@@ -21,6 +21,10 @@ public interface IService
     #region Provice
     [OperationContract]
     bool getProvinceList(out DataSet ds, out string errMsg);
+    [OperationContract]
+    bool getProvinceListByGrapherID(out DataSet ds, out string errMsg, long GrapherID);
+    [OperationContract]
+    bool getProvinceListException(out DataSet ds, out string errMsg, long GrapherID);
     #endregion
 
     #region Place
@@ -44,13 +48,6 @@ public interface IService
     [OperationContract]
     bool getGrapherEarningRateProfileByGrapherIDandEventTypeID(out string errMsg, out double MorningRate,
         out double AfternoonRate, out double EveningRate, out double FulldayRate, long GrapherID, int EventTypeID);
-    #endregion
-
-    #region Booking
-    [OperationContract]
-    bool getGrapherForBooking(out DataSet ds, out string errMsg, string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID);
-    [OperationContract]
-    bool insertBooking(out long bookingID, out string errMsg, string bookingDatetime, int bookingTypeID, int userID, int grapherID, int eventType, int provinceID, int placeID);
     [OperationContract]
     bool IsAuthenticateForLogOn(out DataSet ds, out string errMsg, string userID, string password);
     [OperationContract]
@@ -63,6 +60,19 @@ public interface IService
     bool forceGrapherLogout(string userID, out string errMsg);
     [OperationContract]
     bool LockedGrapher(out string errMsg, string userID);
+    [OperationContract]
+    bool insertMapProvince(out string errMsg, long GrapherID, int ProvinceID);
+    [OperationContract]
+    bool deleteMapProvince(out string errMsg, long GrapherID, int ProvinceID);
+    #endregion
+
+    #region Booking
+    [OperationContract]
+    bool getGrapherForBooking(out DataSet ds, out string errMsg, string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID);
+    [OperationContract]
+    bool insertBooking(out long bookingID, out string errMsg, string bookingDatetime, int bookingTypeID, int userID, int grapherID, int eventType, int provinceID, int placeID);
+    [OperationContract]
+    bool updateBookingStatus(out DataSet ds, out string errMsg, long bookingID, string bookingStatus);
     #endregion
 
     #region MiscellaneousDL

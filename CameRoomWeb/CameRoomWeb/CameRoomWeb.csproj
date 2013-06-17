@@ -117,6 +117,13 @@
     <Compile Include="Models\GrapherModel.cs" />
     <Compile Include="Models\ProvinceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="resurl.aspx.cs">
+      <DependentUpon>resurl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resurl.aspx.designer.cs">
+      <DependentUpon>resurl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Service References\CameRoomService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -135,6 +142,7 @@
     <Content Include="images\marcl.jpg" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="resurl.aspx" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
@@ -208,6 +216,21 @@
     <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.LockedGrapherResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getProvinceListByGrapherIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getProvinceListExceptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.insertMapProvinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.deleteMapProvinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.updateBookingStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\CameRoomService\Service.disco" />
     <None Include="Service References\CameRoomService\configuration91.svcinfo" />
     <None Include="Service References\CameRoomService\configuration.svcinfo" />
@@ -240,6 +263,10 @@
     <Content Include="Views\Booking\Search.cshtml" />
     <Content Include="Views\Grapher\GrapherHome.cshtml" />
     <Content Include="Views\Grapher\GrapherLogOn.cshtml" />
+    <Content Include="Views\Grapher\GrapherEdit.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Grapher\_AddProvince.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

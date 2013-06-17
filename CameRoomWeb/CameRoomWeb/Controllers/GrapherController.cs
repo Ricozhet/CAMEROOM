@@ -9,6 +9,9 @@ using System.Web.Mvc;
 using CameRoomWeb.Models.BookingModel;
 using CameRoomWeb.Utilities;
 using CameRoomWeb.Enumeric;
+using CameRoomWeb.Models;
+using CameRoomWeb.Models.ProvinceModel;
+using System.Configuration;
 
 namespace CameRoomWeb.Controllers
 {
@@ -17,7 +20,7 @@ namespace CameRoomWeb.Controllers
         //
         // GET: /Grapher/
         private Service.GrapherService _grapherService = new Service.GrapherService();
-        CameRoomService.ServiceClient service = new CameRoomService.ServiceClient();
+        CameRoomService.ServiceClient _cmrWF = new CameRoomService.ServiceClient();
         public ActionResult Index()
         {
             return View();
@@ -39,7 +42,7 @@ namespace CameRoomWeb.Controllers
             Byte[] uploadimage = new Byte[image.ContentLength];
             image.InputStream.Read(uploadimage, 0, image.ContentLength);
             model.GrapherPhoto = uploadimage;
-            service.insertGrapherRegister(model.GrapherEmail, model.GrapherName, model.GrapherSurname, model.GrapherPersonalID, model.GrapherPhoto, model.GrapherMobileNumber, model.GrapherSex, model.Password, model.ProvinceID, out errMsg, out tmpGrapherID);
+            _cmrWF.insertGrapherRegister(model.GrapherEmail, model.GrapherName, model.GrapherSurname, model.GrapherPersonalID, model.GrapherPhoto, model.GrapherMobileNumber, model.GrapherSex, model.Password, model.ProvinceID, out errMsg, out tmpGrapherID);
             model.GrapherID = tmpGrapherID;
 
             string CongratType = Request.Form["CongratType"];
@@ -47,17 +50,17 @@ namespace CameRoomWeb.Controllers
             string OtherType = Request.Form["OtherType"];
             if (CongratType == "1")
             {
-                service.insertGrapherRegisterMapEarningRate(model.GrapherID, 1, model.PriceforCongratulationMorning, model.PriceforCongratulationAfternoon, 
+                _cmrWF.insertGrapherRegisterMapEarningRate(model.GrapherID, 1, model.PriceforCongratulationMorning, model.PriceforCongratulationAfternoon, 
                     0, model.PriceforCongratulationFullday, out errMsg);
             }
             if (WeddingType == "1")
             {
-                service.insertGrapherRegisterMapEarningRate(model.GrapherID, 2, model.PriceforWeddingMorning, model.PriceforWeddingAfternoon, 
+                _cmrWF.insertGrapherRegisterMapEarningRate(model.GrapherID, 2, model.PriceforWeddingMorning, model.PriceforWeddingAfternoon, 
                     model.PriceforWeddingEvening, model.PriceforWeddingFullday, out errMsg);
             }
             if (OtherType == "1")
             {
-                service.insertGrapherRegisterMapEarningRate(model.GrapherID, 3, model.PriceforOtherMorning, model.PriceforOtherAfternoon, 
+                _cmrWF.insertGrapherRegisterMapEarningRate(model.GrapherID, 3, model.PriceforOtherMorning, model.PriceforOtherAfternoon, 
                     model.PriceforOtherEvening, model.PriceforOtherFullday, out errMsg);
             }
             return View(model);
@@ -67,7 +70,13 @@ namespace CameRoomWeb.Controllers
         public ActionResult GrapherEdit()
         {
             GrapherEditModel model = new GrapherEditModel();
-            model.GrapherID = 25;
+            model.GrapherID = 35;
+            //Temp
+            AuthenInfo info = new AuthenInfo();
+            //info = (AuthenInfo)HttpContext.Session["LoginInfo"];
+            info.LoginUserID = model.GrapherID;
+            Session["LoginInfo"] = info;
+
             string errMsg = "";
             string tmpGrapherEmail = "";
             string tmpGrapherName = "";
@@ -77,7 +86,7 @@ namespace CameRoomWeb.Controllers
             string tmpGrapherSex = "";
             int tmpProvinceID = 0;
 
-            service.getGrapherProfileByGrapherID(model.GrapherID, out errMsg, out tmpGrapherEmail, out tmpGrapherName, out tmpGrapherSurname,
+            _cmrWF.getGrapherProfileByGrapherID(model.GrapherID, out errMsg, out tmpGrapherEmail, out tmpGrapherName, out tmpGrapherSurname,
                 out tmpGrapherPersonalID, out tmpGrapherTelephoneNumber, out tmpGrapherSex, out tmpProvinceID);
 
             model.GrapherEmail = tmpGrapherEmail;
@@ -107,7 +116,7 @@ namespace CameRoomWeb.Controllers
             for (int iCount = 1; iCount <= 3; iCount++)
             {
                 model.EventTypeID = iCount;
-                if (!service.getGrapherEarningRateProfileByGrapherIDandEventTypeID(model.GrapherID, model.EventTypeID, out errMsg,
+                if (!_cmrWF.getGrapherEarningRateProfileByGrapherIDandEventTypeID(model.GrapherID, model.EventTypeID, out errMsg,
                 out tmpMorningRate, out tmpAfternoonRate, out tmpEveningRate, out tmpFulldayRate))
                 {
                     for (int j = 0; j <= 4; j++)
@@ -141,7 +150,11 @@ namespace CameRoomWeb.Controllers
                 }
             }
             //Province
-            model.ProvinceID = tmpProvinceID;
+            var _list = new List<Province>();
+            _list = _grapherService.getProvinceData();
+            model.listProvinceException = _grapherService.GetProvinceListExceptionByGrapherID(info.LoginUserID);
+            model.Provinces = _list;
+            Session["GrapherEditModel"] = model;
             return View(model);
         }
 
@@ -162,8 +175,13 @@ namespace CameRoomWeb.Controllers
             Booking model = new Booking();
             model = (Booking)Session["BookingModel"];
             model.userID = 2;
-            SendMail.sendEmail("peerawatkung@gmail.com", "TEST SUBJECT", "KAK", out errMsg);
-            service.insertBooking(model.bookingDatetime, Convert.ToInt32(model.bookingType), model.userID, model.grapherID, Convert.ToInt32(model.eventTypeID), model.ProvinceID, Convert.ToInt32(model.PlaceID), out tmpID, out errMsg);
+            if (_cmrWF.insertBooking(model.bookingDatetime, Convert.ToInt32(model.bookingType), model.userID, model.grapherID, Convert.ToInt32(model.eventTypeID), model.ProvinceID, Convert.ToInt32(model.PlaceID), out tmpID, out errMsg))
+            {
+                string resUrl = ConfigurationManager.AppSettings["resurl"].ToString();
+                string apUrl = resUrl + (Utility.stringToBase64("AP" + tmpID.ToString())) + "c";
+                string caUrl = resUrl  + (Utility.stringToBase64("CA" + tmpID.ToString())) + "c";
+                SendMail.sendEmail("all.more.aim@gmail.com", "Booking Request", apUrl + " \n " + caUrl, out errMsg);
+            }
             Session["BookingModel"] = model;
             return View();
         }
@@ -220,6 +238,42 @@ namespace CameRoomWeb.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult AddProvince(GrapherEditModel tmpModel)
+        {
+            string errMsg = "";
+            AuthenInfo info = new AuthenInfo();
+            info = (AuthenInfo)HttpContext.Session["LoginInfo"];
+            GrapherEditModel model = new GrapherEditModel();
+            model = (GrapherEditModel)HttpContext.Session["GrapherEditModel"];
+
+            _cmrWF.insertMapProvince(info.LoginUserID, tmpModel.ProvinceID, out errMsg);
+            var _list = new List<Province>();
+            _list = _grapherService.getProvinceData();
+            model.listProvinceException = _grapherService.GetProvinceListExceptionByGrapherID(info.LoginUserID);
+            model.Provinces = _list;
+            Session["GrapherEditModel"] = model;
+            return View("GrapherEdit", model);
+        }
+
+        public ActionResult RemoveProvince(string ed)
+        {
+            string errMsg = "";
+            AuthenInfo info = new AuthenInfo();
+            info = (AuthenInfo)HttpContext.Session["LoginInfo"];
+            GrapherEditModel model = new GrapherEditModel();
+            model = (GrapherEditModel)HttpContext.Session["GrapherEditModel"];
+            int provinceID = Convert.ToInt32(Utility.base64ToString(ed));
+            _cmrWF.deleteMapProvince(info.LoginUserID, provinceID, out errMsg);
+            var _list = new List<Province>();
+            _list = _grapherService.getProvinceData();
+            model.listProvinceException = _grapherService.GetProvinceListExceptionByGrapherID(info.LoginUserID);
+            model.Provinces = _list;
+            Session["GrapherEditModel"] = model;
+            return View("GrapherEdit", model);
+        }
+        //public ActionResult ProvinceList()
         #endregion
     }
 }

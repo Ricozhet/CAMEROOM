@@ -48,4 +48,53 @@ public class ProvinceDL
         return result;
     }
 
+    public bool getProvinceListByGrapherID(out DataSet ds, out string errMsg, long GrapherID)
+    {
+        bool result = false;
+        ds = new DataSet();
+        errMsg = "";
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            ds = SqlHelper.ExecuteDataset(conn, "ptg_getProvinceListByGrapherID", GrapherID);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+
+    public bool getProvinceListException(out DataSet ds, out string errMsg, long GrapherID)
+    {
+        bool result = false;
+        ds = new DataSet();
+        errMsg = "";
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            ds = SqlHelper.ExecuteDataset(conn, "ptg_getProvinceListException", GrapherID);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+    
+
 }

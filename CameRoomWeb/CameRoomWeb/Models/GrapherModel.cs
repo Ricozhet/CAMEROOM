@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Linq;
 using System.Web.Mvc;
+using CameRoomWeb.Models.ProvinceModel;
 
 namespace CameRoomWeb.Models.GrapherModel
 {
@@ -146,6 +147,8 @@ namespace CameRoomWeb.Models.GrapherModel
                 }
             }
         }
+        public IEnumerable<SelectListItem> listProvinceException { get; set; }
+        public List<Province> Provinces { get; set; }
     }
 
     #region Vesuvius
