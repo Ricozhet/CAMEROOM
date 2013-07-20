@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using CameRoomWeb.Models.BookingModel;
 using CameRoomWeb.Utilities;
 using CameRoomWeb.Enumeric;
+using CameRoomWeb.Models;
 
 namespace CameRoomWeb.Controllers
 {
@@ -68,6 +69,8 @@ namespace CameRoomWeb.Controllers
         {
             GrapherEditModel model = new GrapherEditModel();
             model.GrapherID = 25;
+            AuthenInfo info = new AuthenInfo();
+            info = (AuthenInfo)HttpContext.Session["LoginInfo"];
             string errMsg = "";
             string tmpGrapherEmail = "";
             string tmpGrapherName = "";
@@ -90,7 +93,7 @@ namespace CameRoomWeb.Controllers
             {
                 model.GrapherSexDisplay = "Male";
             }
-            else 
+            else
             {
                 model.GrapherSexDisplay = "Female";
             }
@@ -111,7 +114,7 @@ namespace CameRoomWeb.Controllers
                 out tmpMorningRate, out tmpAfternoonRate, out tmpEveningRate, out tmpFulldayRate))
                 {
                     for (int j = 0; j <= 4; j++)
-                    { 
+                    {
                         tmpEarningRate[iCount -1, j] = 0;
                     }
                 }

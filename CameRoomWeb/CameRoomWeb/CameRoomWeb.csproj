@@ -240,6 +240,8 @@
     <Content Include="Views\Booking\Search.cshtml" />
     <Content Include="Views\Grapher\GrapherHome.cshtml" />
     <Content Include="Views\Grapher\GrapherLogOn.cshtml" />
+    <Content Include="Views\Grapher\GrapherEdit.cshtml" />
+    <Content Include="Views\_AlbumTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

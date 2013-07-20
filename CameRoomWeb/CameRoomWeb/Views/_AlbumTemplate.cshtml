@@ -1,0 +1,15 @@
+﻿@model IEnumerable<CameRoomWeb.BookingModel.Booking>
+
+@using System.Drawing
+
+
+@{
+    ViewBag.Title = "_AlbumTemplate";
+}
+
+@foreach(DataRow dr in Model.SearchGrapher.Tables[0].Rows)
+{
+                <a href="@Url.Action("GrapherHome","Grapher", new { @id = dr[0] })">
+                <img src="@Url.Action("GetImage", "Booking", new { id = dr[0] })" alt="@dr[0]" /> 
+                </a>
+}

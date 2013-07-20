@@ -4,6 +4,51 @@
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width" />
+<title>Search</title>
+<script src="jquery-1.7.2.js" type="text/javascript"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            var Skip = 48; //Number of image to skip
+            var Take = 14; //
+            function Load(Skip, Take) {
+//Post below loader image as progress bar
+                $('#divPostsLoader').html('<img src="ProgressBar/ajax-loader.gif">');
+
+                //send a query to server side to present new content
+                $.ajax({
+                    type: "POST",
+           url: "Default.aspx/LoadImages", //Call the LoadImage method in the code behind
+                    data: "{ Skip:" + Skip + ", Take:" + Take + " }",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+
+                        if (data != "") {
+                            $('.thumb').append(data.d); //Append the retrieved images next to list view
+                        }
+                        $('#divPostsLoader').empty();
+                    }
+
+               })
+            };
+            //Larger thumbnail preview 
+
+            //When scroll down, the scroller is at the bottom with the function below and fire the lastPostFunc function
+            $(window).scroll(function () {
+                if ($(window).scrollTop() == ($(document).height() - $(window).height())) {
+                    Load(Skip, Take);
+                    Skip = Skip + 14;
+                }
+            });
+        });</script>
+
+
+</head>
+<body>
 <h2>Search</h2>
 
 @foreach(DataRow dr in Model.SearchGrapher.Tables[0].Rows)
@@ -14,3 +59,7 @@
                @* <img width="150px" height="150px" alt="company logo" src="@Url.Action("GetLogoImage", "Booking", new { @id = dr[1] })" />*@
                 </a>
 }
+
+
+</body>
+</html>
