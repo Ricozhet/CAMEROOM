@@ -55,6 +55,62 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getProvinceListByGrapherID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProvinceListByGrapherIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getProvinceListByGrapherIDResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ds" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProvinceListException">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProvinceListExceptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getProvinceListExceptionResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ds" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getPlaceListByProvinceID">
     <xs:complexType>
       <xs:sequence>
@@ -166,60 +222,6 @@
         <xs:element minOccurs="0" name="AfternoonRate" type="xs:double" />
         <xs:element minOccurs="0" name="EveningRate" type="xs:double" />
         <xs:element minOccurs="0" name="FulldayRate" type="xs:double" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getGrapherForBooking">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="bookingDatetime" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="bookingTypeID" type="xs:int" />
-        <xs:element minOccurs="0" name="eventType" type="xs:int" />
-        <xs:element minOccurs="0" name="provinceID" type="xs:int" />
-        <xs:element minOccurs="0" name="placeID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getGrapherForBookingResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="getGrapherForBookingResult" type="xs:boolean" />
-        <xs:element minOccurs="0" name="ds" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:element ref="xs:schema" />
-              <xs:any />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="insertBooking">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="bookingDatetime" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="bookingTypeID" type="xs:int" />
-        <xs:element minOccurs="0" name="userID" type="xs:int" />
-        <xs:element minOccurs="0" name="grapherID" type="xs:int" />
-        <xs:element minOccurs="0" name="eventType" type="xs:int" />
-        <xs:element minOccurs="0" name="provinceID" type="xs:int" />
-        <xs:element minOccurs="0" name="placeID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="insertBookingResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="insertBookingResult" type="xs:boolean" />
-        <xs:element minOccurs="0" name="bookingID" type="xs:long" />
-        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -339,6 +341,121 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="LockedGrapherResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertMapProvince">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
+        <xs:element minOccurs="0" name="ProvinceID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertMapProvinceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertMapProvinceResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteMapProvince">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GrapherID" type="xs:long" />
+        <xs:element minOccurs="0" name="ProvinceID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteMapProvinceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deleteMapProvinceResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGrapherForBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingDatetime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bookingTypeID" type="xs:int" />
+        <xs:element minOccurs="0" name="eventType" type="xs:int" />
+        <xs:element minOccurs="0" name="provinceID" type="xs:int" />
+        <xs:element minOccurs="0" name="placeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGrapherForBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getGrapherForBookingResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ds" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingDatetime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bookingTypeID" type="xs:int" />
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+        <xs:element minOccurs="0" name="grapherID" type="xs:int" />
+        <xs:element minOccurs="0" name="eventType" type="xs:int" />
+        <xs:element minOccurs="0" name="provinceID" type="xs:int" />
+        <xs:element minOccurs="0" name="placeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertBookingResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="bookingID" type="xs:long" />
+        <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateBookingStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingID" type="xs:long" />
+        <xs:element minOccurs="0" name="bookingStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateBookingStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateBookingStatusResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ds" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

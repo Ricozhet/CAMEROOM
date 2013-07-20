@@ -4,20 +4,22 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using CameRoomWeb.Enumeric;
 using CameRoomWeb.Models;
+using CameRoomWeb.Models.ProvinceModel;
 using CameRoomWeb.Utilities;
 
 namespace CameRoomWeb.Service
 {
     public class GrapherService
     {
-        private CameRoomService.ServiceClient service;
+        private CameRoomService.ServiceClient _cmrWS;
         public GrapherService()
         {
             try
             {
-                service = new CameRoomService.ServiceClient();
+                _cmrWS = new CameRoomService.ServiceClient();
             }
             catch (Exception ex)
             {
@@ -28,7 +30,7 @@ namespace CameRoomWeb.Service
         {
             DataSet ds = null;
             msg = "";
-            if (service.IsAuthenticateForLogOn(loginID, password, out ds, out msg))
+            if (_cmrWS.IsAuthenticateForLogOn(loginID, password, out ds, out msg))
             {
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -49,13 +51,13 @@ namespace CameRoomWeb.Service
                 else
                 {
                     int LoginFailCount = 0;
-                    if (service.updateLoginFailCount(loginID,out LoginFailCount, out msg))
+                    if (_cmrWS.updateLoginFailCount(loginID,out LoginFailCount, out msg))
                     {
                         SetAuthenInfo(loginID);
                         int MaxLogAttempt = Convert.ToInt16(ConfigurationManager.AppSettings["MaxLogAttempt"].ToString());
                         if (Convert.ToInt16(LoginFailCount) >= MaxLogAttempt)
                         {
-                            if (service.LockedGrapher(loginID, out msg))
+                            if (_cmrWS.LockedGrapher(loginID, out msg))
                             {
                                 msg = "Your login account has been locked, please contact administrator.";
                                 return LogOnResultType.USERLOCKED;
@@ -91,7 +93,7 @@ namespace CameRoomWeb.Service
         {
             string errMsg = "";
             DataSet ds = new DataSet();
-            if (!service.getGrapherInfo(user, out ds, out errMsg))
+            if (!_cmrWS.getGrapherInfo(user, out ds, out errMsg))
             {
                 //WriteLog("getUserInfo (Error) : " + errMsg);
             }
@@ -101,7 +103,7 @@ namespace CameRoomWeb.Service
                 AuthenInfo info = new AuthenInfo();
                 info.With(m =>
                 {
-                    m.LoginUserID = user;
+                    m.LoginUserID = Convert.ToInt64(ds.Tables[0].Rows[0]["GRAPHERID"]); ;
                     m.LoginUserName = Convert.ToString(ds.Tables[0].Rows[0]["NAME"]);
                     m.ClientIP = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
                     m.UserLevel = Convert.ToString(ds.Tables[0].Rows[0]["GRAPHERLEVEL"]);
@@ -113,7 +115,7 @@ namespace CameRoomWeb.Service
                 System.Web.SessionState.HttpSessionState ss = HttpContext.Current.Session;
                 //Updated login info.
                 //UpdateAuthenUsers(info, ss.SessionID);
-                if (!service.updatedAuthenGrapher(info.LoginUserID, info.ClientIP, ss.SessionID, out errMsg))
+                if (!_cmrWS.updatedAuthenGrapher(Convert.ToString(info.LoginUserID), info.ClientIP, ss.SessionID, out errMsg))
                 {
                     //WriteLog("updatedAuthenUser (Error) : " + errMsg);
                 }
@@ -126,7 +128,7 @@ namespace CameRoomWeb.Service
             string salt = "";
             try
             {
-                if (!service.getGrapherInfo(userID, out ds, out errMsg))
+                if (!_cmrWS.getGrapherInfo(userID, out ds, out errMsg))
                 {
                     //WriteLog("getUserInfo (Error) : " + errMsg);
                 }
@@ -141,17 +143,71 @@ namespace CameRoomWeb.Service
                 return "";
             }
         }
-
         public void SignOff()
         {
             string errMsg = string.Empty;
             AuthenInfo _info = new AuthenInfo();
             _info = (AuthenInfo)HttpContext.Current.Session["LoginInfo"];
-            bool success = service.forceGrapherLogout(_info.LoginUserID, out errMsg);
+            bool success = _cmrWS.forceGrapherLogout((_info.LoginUserID).ToString(), out errMsg);
             HttpContext.Current.Session.Abandon();
             if (!success)
             {
                 //WriteLog(errMsg);
+            }
+        }
+        public List<Province> getProvinceData()
+        {
+            return this.Provinces;
+        }
+        public List<Province> Provinces
+        {
+            get
+            {
+                List<Province> Provinces = new List<Province>();
+                InitProvinceData(ref Provinces);
+                return Provinces;
+            }
+        }
+        private void InitProvinceData(ref List<Province> list)
+        {
+            try
+            {
+                DataSet ds = null;
+                DataTable dt = null;
+                string errMsg = "";
+                AuthenInfo info = new AuthenInfo();
+                info = (AuthenInfo)HttpContext.Current.Session["LoginInfo"];
+                if (_cmrWS.getProvinceListByGrapherID(info.LoginUserID, out ds, out errMsg))
+                {
+                    dt = ds.Tables[0];
+                    //dt.AsEnumerable().ToList();
+                    list = (from DataRow row in dt.Rows
+                            select new Province
+                            {
+                                RowNo = Convert.ToInt16(row["rowNumber"]),
+                                ProvinceID = Convert.ToInt16(row["PROVINCEID"]),
+                                ProvinceName = Convert.ToString(row["PROVINCENAME"])
+                            }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public IEnumerable<SelectListItem> GetProvinceListExceptionByGrapherID(long GrapherID)
+        {
+            string errMsg = "";
+            DataSet ds = null;
+            DataTable dt = null;
+            if (!_cmrWS.getProvinceListException(GrapherID , out ds, out errMsg))
+            {
+                return null;
+            }
+            else
+            {
+                dt = ds.Tables[0];
+                return Utilities.Utility.DT2SelectList(dt, "PROVINCEID", "PROVINCENAME");
             }
         }
     }

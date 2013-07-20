@@ -10,8 +10,11 @@ using CameRoomWeb.Models.BookingModel;
 using CameRoomWeb.Utilities;
 using CameRoomWeb.Enumeric;
 using CameRoomWeb.Models;
+<<<<<<< HEAD
+=======
 using CameRoomWeb.Models.ProvinceModel;
 using System.Configuration;
+>>>>>>> 651ec20a3931737e53162c09479c2c496360246e
 
 namespace CameRoomWeb.Controllers
 {
@@ -70,6 +73,11 @@ namespace CameRoomWeb.Controllers
         public ActionResult GrapherEdit()
         {
             GrapherEditModel model = new GrapherEditModel();
+<<<<<<< HEAD
+            model.GrapherID = 25;
+            AuthenInfo info = new AuthenInfo();
+            info = (AuthenInfo)HttpContext.Session["LoginInfo"];
+=======
             model.GrapherID = 35;
             //Temp
             AuthenInfo info = new AuthenInfo();
@@ -77,6 +85,7 @@ namespace CameRoomWeb.Controllers
             info.LoginUserID = model.GrapherID;
             Session["LoginInfo"] = info;
 
+>>>>>>> 651ec20a3931737e53162c09479c2c496360246e
             string errMsg = "";
             string tmpGrapherEmail = "";
             string tmpGrapherName = "";

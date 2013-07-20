@@ -50,18 +50,67 @@ namespace CameRoomWeb.Utilities
         {
             work(item);
         }
+<<<<<<< HEAD
+        //public string GetNewSaltKey()
+        //{
+        //    // Define min and max salt sizes.
+        //    int minSaltSize = 4;
+        //    int maxSaltSize = 8;
+        //    byte[] saltBytes = null;
+        //    string saltkey = "";
+
+        //    try
+        //    {
+        //        // Generate a random number for the size of the salt.
+        //        Random random = new Random();
+        //        int saltSize = random.Next(minSaltSize, maxSaltSize);
+
+        //        // Allocate a byte array, which will
+        //        saltBytes = new byte[saltSize];
+
+        //        // Initialize a random number generator.
+        //        RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+
+        //        // Fill the salt with cryptographically strong byte values.
+        //        rng.GetNonZeroBytes(saltBytes);
+
+        //        saltkey = ConvertSaltKey(saltBytes);
+        //    }
+        //    catch
+        //    {
+        //        throw;
+        //    }
+
+        //    return saltkey;
+        //}
+        //public string ConvertSaltKey(byte[] saltBytes)
+        //{
+        //      string base64SaltKey = "";
+
+        //      try
+        //      {
+        //          base64SaltKey = Convert.ToBase64String(saltBytes);
+        //      }
+        //      catch
+        //      {
+        //          throw;
+        //      }
+
+        //      return base64SaltKey;
+        //}
+=======
 
         public static string stringToBase64(string st)
         {
             byte[] b = new byte[st.Length];
             for (int i = 0; i < st.Length; i++)
-        //    {
+            {
                 b[i] = Convert.ToByte(st[i]);
-        //    }
+            }
             return Convert.ToBase64String(b);
-        //}
+        }
         public static string base64ToString(string st)
-        //{
+        {
             byte[] b;
             string s = "";
             try
@@ -77,5 +126,7 @@ namespace CameRoomWeb.Utilities
                 s += Convert.ToChar(b[i]);
             }
             return s;
+        }
+>>>>>>> 651ec20a3931737e53162c09479c2c496360246e
     }
 }

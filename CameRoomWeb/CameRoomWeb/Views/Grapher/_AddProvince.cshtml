@@ -1,0 +1,26 @@
+﻿@model CameRoomWeb.Models.GrapherModel.GrapherEditModel
+@using CameRoomWeb.Models.ProvinceModel
+@using CameRoomWeb.Utilities;
+
+
+    
+@{                          
+    List<Province> _model = (List<Province>)Model.Provinces;
+    var grid = new WebGrid(_model, canPage: false);
+
+    <table>
+        <tr>
+            <td>
+                    @Html.DropDownListFor(m => m.ProvinceID, Model.listProvinceException, new { @class = "dropdown", style = "width:210px;" })
+                    &nbsp
+                    <input type="submit" value="Add Province" />
+            </td>
+        </tr>
+    </table>                  
+    @grid.GetHtml(tableStyle: "webGrid", headerStyle: "webGrid-Header", alternatingRowStyle: "webGrid-alt", htmlAttributes: "", mode: WebGridPagerModes.All, firstText: "First ", lastText: " Last", columns: grid.Columns(
+        grid.Column("RowNo", "#", canSort: false),
+        grid.Column("ProvinceName", "ProvinceName", canSort: false),
+        grid.Column(format: (item) => Html.ActionLink("Remove", "RemoveProvince", new { ed = Utility.stringToBase64(Convert.ToString(item.ProvinceID)) }))
+                                        ));
+                                                                                                                                                  
+}

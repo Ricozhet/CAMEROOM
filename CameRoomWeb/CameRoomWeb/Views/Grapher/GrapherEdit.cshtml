@@ -155,14 +155,16 @@
                 </td>
             }
         </tr>
-        <tr>
-            <td>Province</td>
-            <td>@Html.DropDownListFor(m => m.ProvinceID, Model.listProvince, new { @class = "dropdown", style = "width:210px;" })</td>
-            <td></td>
-        </tr>
     </table>
+    }
+
+    @using (Ajax.BeginForm("AddProvince", new AjaxOptions { HttpMethod = "Post" }))
+    {  
+        { Html.RenderPartial("_AddProvince", Model); }
+    }
+
     <br \><br \>
     <input type="submit" value="Update" />
-}
+
 </body>
 </html>

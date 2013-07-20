@@ -300,6 +300,50 @@ public class GrapherDL
         }
         return result;
     }
+    public bool insertMapProvince(out string errMsg, long GrapherID, int ProvinceID)
+    {
+        bool result = false;
+        errMsg = "";
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            SqlHelper.ExecuteNonQuery(conn, "ptg_insertMapProvince", GrapherID, ProvinceID);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
+    public bool deleteMapProvince(out string errMsg, long GrapherID, int ProvinceID)
+    {
+        bool result = false;
+        errMsg = "";
+        SqlConnection conn = dbh.getConnection();
+        try
+        {
+            conn.Open();
+            SqlHelper.ExecuteNonQuery(conn, "ptg_deleteMapProvince", GrapherID, ProvinceID);
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            errMsg = ex.Message;
+        }
+        finally
+        {
+            if (conn != null)
+                conn.Close();
+        }
+        return result;
+    }
     #endregion
 
 }

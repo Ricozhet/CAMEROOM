@@ -39,6 +39,18 @@ public class Service : IService
         ProvinceDL dl = new ProvinceDL();
         return dl.getProvinceList(out ds, out errMsg);
     }
+
+    public bool getProvinceListByGrapherID(out DataSet ds, out string errMsg, long GrapherID)
+    {
+        ProvinceDL dl = new ProvinceDL();
+        return dl.getProvinceListByGrapherID(out ds, out errMsg, GrapherID);
+    }
+
+    public bool getProvinceListException(out DataSet ds, out string errMsg, long GrapherID)
+    {
+        ProvinceDL dl = new ProvinceDL();
+        return dl.getProvinceListException(out ds, out errMsg, GrapherID);
+    }
     #endregion
 
     #region Place
@@ -114,6 +126,16 @@ public class Service : IService
         GrapherDL dl = new GrapherDL();
         return dl.LockedGrapher(out errMsg, userID);
     }
+    public bool insertMapProvince(out string errMsg, long GrapherID, int ProvinceID)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.insertMapProvince(out errMsg, GrapherID, ProvinceID);
+    }
+    public bool deleteMapProvince(out string errMsg, long GrapherID, int ProvinceID)
+    {
+        GrapherDL dl = new GrapherDL();
+        return dl.deleteMapProvince(out errMsg, GrapherID, ProvinceID);
+    }
     #endregion
 
     #region Booking
@@ -165,6 +187,12 @@ public class Service : IService
                 conn.Close();
         }
         return result;
+    }
+
+    public bool updateBookingStatus(out DataSet ds, out string errMsg, long bookingID, string bookingStatus)
+    {
+        BookingDL dl = new BookingDL();
+        return dl.updateBookingStatus(out ds, out errMsg, bookingID, bookingStatus);
     }
     #endregion
 

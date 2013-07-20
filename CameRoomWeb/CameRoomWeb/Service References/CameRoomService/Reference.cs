@@ -40,6 +40,22 @@ namespace CameRoomWeb.CameRoomService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getProvinceList", ReplyAction="http://tempuri.org/IService/getProvinceListResponse")]
         System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getProvinceListResponse> getProvinceListAsync(CameRoomWeb.CameRoomService.getProvinceListRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getProvinceListByGrapherID", ReplyAction="http://tempuri.org/IService/getProvinceListByGrapherIDResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.getProvinceListByGrapherIDResponse getProvinceListByGrapherID(CameRoomWeb.CameRoomService.getProvinceListByGrapherIDRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getProvinceListByGrapherID", ReplyAction="http://tempuri.org/IService/getProvinceListByGrapherIDResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getProvinceListByGrapherIDResponse> getProvinceListByGrapherIDAsync(CameRoomWeb.CameRoomService.getProvinceListByGrapherIDRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getProvinceListException", ReplyAction="http://tempuri.org/IService/getProvinceListExceptionResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.getProvinceListExceptionResponse getProvinceListException(CameRoomWeb.CameRoomService.getProvinceListExceptionRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getProvinceListException", ReplyAction="http://tempuri.org/IService/getProvinceListExceptionResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getProvinceListExceptionResponse> getProvinceListExceptionAsync(CameRoomWeb.CameRoomService.getProvinceListExceptionRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getPlaceListByProvinceID", ReplyAction="http://tempuri.org/IService/getPlaceListByProvinceIDResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         CameRoomWeb.CameRoomService.getPlaceListByProvinceIDResponse getPlaceListByProvinceID(CameRoomWeb.CameRoomService.getPlaceListByProvinceIDRequest request);
@@ -83,22 +99,6 @@ namespace CameRoomWeb.CameRoomService {
             "", ReplyAction="http://tempuri.org/IService/getGrapherEarningRateProfileByGrapherIDandEventTypeID" +
             "Response")]
         System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandEventTypeIDResponse> getGrapherEarningRateProfileByGrapherIDandEventTypeIDAsync(CameRoomWeb.CameRoomService.getGrapherEarningRateProfileByGrapherIDandEventTypeIDRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherForBooking", ReplyAction="http://tempuri.org/IService/getGrapherForBookingResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        CameRoomWeb.CameRoomService.getGrapherForBookingResponse getGrapherForBooking(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherForBooking", ReplyAction="http://tempuri.org/IService/getGrapherForBookingResponse")]
-        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherForBookingResponse> getGrapherForBookingAsync(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertBooking", ReplyAction="http://tempuri.org/IService/insertBookingResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        CameRoomWeb.CameRoomService.insertBookingResponse insertBooking(CameRoomWeb.CameRoomService.insertBookingRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertBooking", ReplyAction="http://tempuri.org/IService/insertBookingResponse")]
-        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertBookingResponse> insertBookingAsync(CameRoomWeb.CameRoomService.insertBookingRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsAuthenticateForLogOn", ReplyAction="http://tempuri.org/IService/IsAuthenticateForLogOnResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -147,6 +147,46 @@ namespace CameRoomWeb.CameRoomService {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/LockedGrapher", ReplyAction="http://tempuri.org/IService/LockedGrapherResponse")]
         System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.LockedGrapherResponse> LockedGrapherAsync(CameRoomWeb.CameRoomService.LockedGrapherRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertMapProvince", ReplyAction="http://tempuri.org/IService/insertMapProvinceResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.insertMapProvinceResponse insertMapProvince(CameRoomWeb.CameRoomService.insertMapProvinceRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertMapProvince", ReplyAction="http://tempuri.org/IService/insertMapProvinceResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertMapProvinceResponse> insertMapProvinceAsync(CameRoomWeb.CameRoomService.insertMapProvinceRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteMapProvince", ReplyAction="http://tempuri.org/IService/deleteMapProvinceResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.deleteMapProvinceResponse deleteMapProvince(CameRoomWeb.CameRoomService.deleteMapProvinceRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteMapProvince", ReplyAction="http://tempuri.org/IService/deleteMapProvinceResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.deleteMapProvinceResponse> deleteMapProvinceAsync(CameRoomWeb.CameRoomService.deleteMapProvinceRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherForBooking", ReplyAction="http://tempuri.org/IService/getGrapherForBookingResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.getGrapherForBookingResponse getGrapherForBooking(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherForBooking", ReplyAction="http://tempuri.org/IService/getGrapherForBookingResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherForBookingResponse> getGrapherForBookingAsync(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertBooking", ReplyAction="http://tempuri.org/IService/insertBookingResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.insertBookingResponse insertBooking(CameRoomWeb.CameRoomService.insertBookingRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertBooking", ReplyAction="http://tempuri.org/IService/insertBookingResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertBookingResponse> insertBookingAsync(CameRoomWeb.CameRoomService.insertBookingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateBookingStatus", ReplyAction="http://tempuri.org/IService/updateBookingStatusResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        CameRoomWeb.CameRoomService.updateBookingStatusResponse updateBookingStatus(CameRoomWeb.CameRoomService.updateBookingStatusRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateBookingStatus", ReplyAction="http://tempuri.org/IService/updateBookingStatusResponse")]
+        System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.updateBookingStatusResponse> updateBookingStatusAsync(CameRoomWeb.CameRoomService.updateBookingStatusRequest request);
         
         // CODEGEN: Parameter 'getGrapherImageResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getGrapherImage", ReplyAction="http://tempuri.org/IService/getGrapherImageResponse")]
@@ -318,6 +358,90 @@ namespace CameRoomWeb.CameRoomService {
         
         public getProvinceListResponse(bool getProvinceListResult, System.Data.DataSet ds, string errMsg) {
             this.getProvinceListResult = getProvinceListResult;
+            this.ds = ds;
+            this.errMsg = errMsg;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getProvinceListByGrapherID", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getProvinceListByGrapherIDRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long GrapherID;
+        
+        public getProvinceListByGrapherIDRequest() {
+        }
+        
+        public getProvinceListByGrapherIDRequest(long GrapherID) {
+            this.GrapherID = GrapherID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getProvinceListByGrapherIDResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getProvinceListByGrapherIDResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool getProvinceListByGrapherIDResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Data.DataSet ds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public getProvinceListByGrapherIDResponse() {
+        }
+        
+        public getProvinceListByGrapherIDResponse(bool getProvinceListByGrapherIDResult, System.Data.DataSet ds, string errMsg) {
+            this.getProvinceListByGrapherIDResult = getProvinceListByGrapherIDResult;
+            this.ds = ds;
+            this.errMsg = errMsg;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getProvinceListException", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getProvinceListExceptionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long GrapherID;
+        
+        public getProvinceListExceptionRequest() {
+        }
+        
+        public getProvinceListExceptionRequest(long GrapherID) {
+            this.GrapherID = GrapherID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getProvinceListExceptionResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getProvinceListExceptionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool getProvinceListExceptionResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Data.DataSet ds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public getProvinceListExceptionResponse() {
+        }
+        
+        public getProvinceListExceptionResponse(bool getProvinceListExceptionResult, System.Data.DataSet ds, string errMsg) {
+            this.getProvinceListExceptionResult = getProvinceListExceptionResult;
             this.ds = ds;
             this.errMsg = errMsg;
         }
@@ -633,131 +757,6 @@ namespace CameRoomWeb.CameRoomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherForBooking", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class getGrapherForBookingRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string bookingDatetime;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int bookingTypeID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public int eventType;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public int provinceID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
-        public int placeID;
-        
-        public getGrapherForBookingRequest() {
-        }
-        
-        public getGrapherForBookingRequest(string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID) {
-            this.bookingDatetime = bookingDatetime;
-            this.bookingTypeID = bookingTypeID;
-            this.eventType = eventType;
-            this.provinceID = provinceID;
-            this.placeID = placeID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherForBookingResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class getGrapherForBookingResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool getGrapherForBookingResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Data.DataSet ds;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string errMsg;
-        
-        public getGrapherForBookingResponse() {
-        }
-        
-        public getGrapherForBookingResponse(bool getGrapherForBookingResult, System.Data.DataSet ds, string errMsg) {
-            this.getGrapherForBookingResult = getGrapherForBookingResult;
-            this.ds = ds;
-            this.errMsg = errMsg;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertBooking", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertBookingRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string bookingDatetime;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int bookingTypeID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public int userID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public int grapherID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
-        public int eventType;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
-        public int provinceID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
-        public int placeID;
-        
-        public insertBookingRequest() {
-        }
-        
-        public insertBookingRequest(string bookingDatetime, int bookingTypeID, int userID, int grapherID, int eventType, int provinceID, int placeID) {
-            this.bookingDatetime = bookingDatetime;
-            this.bookingTypeID = bookingTypeID;
-            this.userID = userID;
-            this.grapherID = grapherID;
-            this.eventType = eventType;
-            this.provinceID = provinceID;
-            this.placeID = placeID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertBookingResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertBookingResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool insertBookingResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public long bookingID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string errMsg;
-        
-        public insertBookingResponse() {
-        }
-        
-        public insertBookingResponse(bool insertBookingResult, long bookingID, string errMsg) {
-            this.insertBookingResult = insertBookingResult;
-            this.bookingID = bookingID;
-            this.errMsg = errMsg;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="IsAuthenticateForLogOn", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class IsAuthenticateForLogOnRequest {
         
@@ -1015,6 +1014,260 @@ namespace CameRoomWeb.CameRoomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertMapProvince", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertMapProvinceRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long GrapherID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int ProvinceID;
+        
+        public insertMapProvinceRequest() {
+        }
+        
+        public insertMapProvinceRequest(long GrapherID, int ProvinceID) {
+            this.GrapherID = GrapherID;
+            this.ProvinceID = ProvinceID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertMapProvinceResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertMapProvinceResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool insertMapProvinceResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public insertMapProvinceResponse() {
+        }
+        
+        public insertMapProvinceResponse(bool insertMapProvinceResult, string errMsg) {
+            this.insertMapProvinceResult = insertMapProvinceResult;
+            this.errMsg = errMsg;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="deleteMapProvince", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class deleteMapProvinceRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long GrapherID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int ProvinceID;
+        
+        public deleteMapProvinceRequest() {
+        }
+        
+        public deleteMapProvinceRequest(long GrapherID, int ProvinceID) {
+            this.GrapherID = GrapherID;
+            this.ProvinceID = ProvinceID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="deleteMapProvinceResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class deleteMapProvinceResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool deleteMapProvinceResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public deleteMapProvinceResponse() {
+        }
+        
+        public deleteMapProvinceResponse(bool deleteMapProvinceResult, string errMsg) {
+            this.deleteMapProvinceResult = deleteMapProvinceResult;
+            this.errMsg = errMsg;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherForBooking", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getGrapherForBookingRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string bookingDatetime;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int bookingTypeID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public int eventType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public int provinceID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public int placeID;
+        
+        public getGrapherForBookingRequest() {
+        }
+        
+        public getGrapherForBookingRequest(string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID) {
+            this.bookingDatetime = bookingDatetime;
+            this.bookingTypeID = bookingTypeID;
+            this.eventType = eventType;
+            this.provinceID = provinceID;
+            this.placeID = placeID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherForBookingResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getGrapherForBookingResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool getGrapherForBookingResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Data.DataSet ds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public getGrapherForBookingResponse() {
+        }
+        
+        public getGrapherForBookingResponse(bool getGrapherForBookingResult, System.Data.DataSet ds, string errMsg) {
+            this.getGrapherForBookingResult = getGrapherForBookingResult;
+            this.ds = ds;
+            this.errMsg = errMsg;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertBooking", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertBookingRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string bookingDatetime;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int bookingTypeID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public int userID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public int grapherID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public int eventType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public int provinceID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        public int placeID;
+        
+        public insertBookingRequest() {
+        }
+        
+        public insertBookingRequest(string bookingDatetime, int bookingTypeID, int userID, int grapherID, int eventType, int provinceID, int placeID) {
+            this.bookingDatetime = bookingDatetime;
+            this.bookingTypeID = bookingTypeID;
+            this.userID = userID;
+            this.grapherID = grapherID;
+            this.eventType = eventType;
+            this.provinceID = provinceID;
+            this.placeID = placeID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertBookingResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertBookingResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool insertBookingResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public long bookingID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public insertBookingResponse() {
+        }
+        
+        public insertBookingResponse(bool insertBookingResult, long bookingID, string errMsg) {
+            this.insertBookingResult = insertBookingResult;
+            this.bookingID = bookingID;
+            this.errMsg = errMsg;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateBookingStatus", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class updateBookingStatusRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public long bookingID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string bookingStatus;
+        
+        public updateBookingStatusRequest() {
+        }
+        
+        public updateBookingStatusRequest(long bookingID, string bookingStatus) {
+            this.bookingID = bookingID;
+            this.bookingStatus = bookingStatus;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateBookingStatusResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class updateBookingStatusResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool updateBookingStatusResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Data.DataSet ds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string errMsg;
+        
+        public updateBookingStatusResponse() {
+        }
+        
+        public updateBookingStatusResponse(bool updateBookingStatusResult, System.Data.DataSet ds, string errMsg) {
+            this.updateBookingStatusResult = updateBookingStatusResult;
+            this.ds = ds;
+            this.errMsg = errMsg;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getGrapherImage", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class getGrapherImageRequest {
@@ -1139,6 +1392,42 @@ namespace CameRoomWeb.CameRoomService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.getProvinceListByGrapherIDResponse CameRoomWeb.CameRoomService.IService.getProvinceListByGrapherID(CameRoomWeb.CameRoomService.getProvinceListByGrapherIDRequest request) {
+            return base.Channel.getProvinceListByGrapherID(request);
+        }
+        
+        public bool getProvinceListByGrapherID(long GrapherID, out System.Data.DataSet ds, out string errMsg) {
+            CameRoomWeb.CameRoomService.getProvinceListByGrapherIDRequest inValue = new CameRoomWeb.CameRoomService.getProvinceListByGrapherIDRequest();
+            inValue.GrapherID = GrapherID;
+            CameRoomWeb.CameRoomService.getProvinceListByGrapherIDResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).getProvinceListByGrapherID(inValue);
+            ds = retVal.ds;
+            errMsg = retVal.errMsg;
+            return retVal.getProvinceListByGrapherIDResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getProvinceListByGrapherIDResponse> getProvinceListByGrapherIDAsync(CameRoomWeb.CameRoomService.getProvinceListByGrapherIDRequest request) {
+            return base.Channel.getProvinceListByGrapherIDAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.getProvinceListExceptionResponse CameRoomWeb.CameRoomService.IService.getProvinceListException(CameRoomWeb.CameRoomService.getProvinceListExceptionRequest request) {
+            return base.Channel.getProvinceListException(request);
+        }
+        
+        public bool getProvinceListException(long GrapherID, out System.Data.DataSet ds, out string errMsg) {
+            CameRoomWeb.CameRoomService.getProvinceListExceptionRequest inValue = new CameRoomWeb.CameRoomService.getProvinceListExceptionRequest();
+            inValue.GrapherID = GrapherID;
+            CameRoomWeb.CameRoomService.getProvinceListExceptionResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).getProvinceListException(inValue);
+            ds = retVal.ds;
+            errMsg = retVal.errMsg;
+            return retVal.getProvinceListExceptionResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getProvinceListExceptionResponse> getProvinceListExceptionAsync(CameRoomWeb.CameRoomService.getProvinceListExceptionRequest request) {
+            return base.Channel.getProvinceListExceptionAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         CameRoomWeb.CameRoomService.getPlaceListByProvinceIDResponse CameRoomWeb.CameRoomService.IService.getPlaceListByProvinceID(CameRoomWeb.CameRoomService.getPlaceListByProvinceIDRequest request) {
             return base.Channel.getPlaceListByProvinceID(request);
         }
@@ -1251,52 +1540,6 @@ namespace CameRoomWeb.CameRoomService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CameRoomWeb.CameRoomService.getGrapherForBookingResponse CameRoomWeb.CameRoomService.IService.getGrapherForBooking(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request) {
-            return base.Channel.getGrapherForBooking(request);
-        }
-        
-        public bool getGrapherForBooking(string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID, out System.Data.DataSet ds, out string errMsg) {
-            CameRoomWeb.CameRoomService.getGrapherForBookingRequest inValue = new CameRoomWeb.CameRoomService.getGrapherForBookingRequest();
-            inValue.bookingDatetime = bookingDatetime;
-            inValue.bookingTypeID = bookingTypeID;
-            inValue.eventType = eventType;
-            inValue.provinceID = provinceID;
-            inValue.placeID = placeID;
-            CameRoomWeb.CameRoomService.getGrapherForBookingResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).getGrapherForBooking(inValue);
-            ds = retVal.ds;
-            errMsg = retVal.errMsg;
-            return retVal.getGrapherForBookingResult;
-        }
-        
-        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherForBookingResponse> getGrapherForBookingAsync(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request) {
-            return base.Channel.getGrapherForBookingAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CameRoomWeb.CameRoomService.insertBookingResponse CameRoomWeb.CameRoomService.IService.insertBooking(CameRoomWeb.CameRoomService.insertBookingRequest request) {
-            return base.Channel.insertBooking(request);
-        }
-        
-        public bool insertBooking(string bookingDatetime, int bookingTypeID, int userID, int grapherID, int eventType, int provinceID, int placeID, out long bookingID, out string errMsg) {
-            CameRoomWeb.CameRoomService.insertBookingRequest inValue = new CameRoomWeb.CameRoomService.insertBookingRequest();
-            inValue.bookingDatetime = bookingDatetime;
-            inValue.bookingTypeID = bookingTypeID;
-            inValue.userID = userID;
-            inValue.grapherID = grapherID;
-            inValue.eventType = eventType;
-            inValue.provinceID = provinceID;
-            inValue.placeID = placeID;
-            CameRoomWeb.CameRoomService.insertBookingResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).insertBooking(inValue);
-            bookingID = retVal.bookingID;
-            errMsg = retVal.errMsg;
-            return retVal.insertBookingResult;
-        }
-        
-        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertBookingResponse> insertBookingAsync(CameRoomWeb.CameRoomService.insertBookingRequest request) {
-            return base.Channel.insertBookingAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         CameRoomWeb.CameRoomService.IsAuthenticateForLogOnResponse CameRoomWeb.CameRoomService.IService.IsAuthenticateForLogOn(CameRoomWeb.CameRoomService.IsAuthenticateForLogOnRequest request) {
             return base.Channel.IsAuthenticateForLogOn(request);
         }
@@ -1402,6 +1645,107 @@ namespace CameRoomWeb.CameRoomService {
         
         public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.LockedGrapherResponse> LockedGrapherAsync(CameRoomWeb.CameRoomService.LockedGrapherRequest request) {
             return base.Channel.LockedGrapherAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.insertMapProvinceResponse CameRoomWeb.CameRoomService.IService.insertMapProvince(CameRoomWeb.CameRoomService.insertMapProvinceRequest request) {
+            return base.Channel.insertMapProvince(request);
+        }
+        
+        public bool insertMapProvince(long GrapherID, int ProvinceID, out string errMsg) {
+            CameRoomWeb.CameRoomService.insertMapProvinceRequest inValue = new CameRoomWeb.CameRoomService.insertMapProvinceRequest();
+            inValue.GrapherID = GrapherID;
+            inValue.ProvinceID = ProvinceID;
+            CameRoomWeb.CameRoomService.insertMapProvinceResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).insertMapProvince(inValue);
+            errMsg = retVal.errMsg;
+            return retVal.insertMapProvinceResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertMapProvinceResponse> insertMapProvinceAsync(CameRoomWeb.CameRoomService.insertMapProvinceRequest request) {
+            return base.Channel.insertMapProvinceAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.deleteMapProvinceResponse CameRoomWeb.CameRoomService.IService.deleteMapProvince(CameRoomWeb.CameRoomService.deleteMapProvinceRequest request) {
+            return base.Channel.deleteMapProvince(request);
+        }
+        
+        public bool deleteMapProvince(long GrapherID, int ProvinceID, out string errMsg) {
+            CameRoomWeb.CameRoomService.deleteMapProvinceRequest inValue = new CameRoomWeb.CameRoomService.deleteMapProvinceRequest();
+            inValue.GrapherID = GrapherID;
+            inValue.ProvinceID = ProvinceID;
+            CameRoomWeb.CameRoomService.deleteMapProvinceResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).deleteMapProvince(inValue);
+            errMsg = retVal.errMsg;
+            return retVal.deleteMapProvinceResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.deleteMapProvinceResponse> deleteMapProvinceAsync(CameRoomWeb.CameRoomService.deleteMapProvinceRequest request) {
+            return base.Channel.deleteMapProvinceAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.getGrapherForBookingResponse CameRoomWeb.CameRoomService.IService.getGrapherForBooking(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request) {
+            return base.Channel.getGrapherForBooking(request);
+        }
+        
+        public bool getGrapherForBooking(string bookingDatetime, int bookingTypeID, int eventType, int provinceID, int placeID, out System.Data.DataSet ds, out string errMsg) {
+            CameRoomWeb.CameRoomService.getGrapherForBookingRequest inValue = new CameRoomWeb.CameRoomService.getGrapherForBookingRequest();
+            inValue.bookingDatetime = bookingDatetime;
+            inValue.bookingTypeID = bookingTypeID;
+            inValue.eventType = eventType;
+            inValue.provinceID = provinceID;
+            inValue.placeID = placeID;
+            CameRoomWeb.CameRoomService.getGrapherForBookingResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).getGrapherForBooking(inValue);
+            ds = retVal.ds;
+            errMsg = retVal.errMsg;
+            return retVal.getGrapherForBookingResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.getGrapherForBookingResponse> getGrapherForBookingAsync(CameRoomWeb.CameRoomService.getGrapherForBookingRequest request) {
+            return base.Channel.getGrapherForBookingAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.insertBookingResponse CameRoomWeb.CameRoomService.IService.insertBooking(CameRoomWeb.CameRoomService.insertBookingRequest request) {
+            return base.Channel.insertBooking(request);
+        }
+        
+        public bool insertBooking(string bookingDatetime, int bookingTypeID, int userID, int grapherID, int eventType, int provinceID, int placeID, out long bookingID, out string errMsg) {
+            CameRoomWeb.CameRoomService.insertBookingRequest inValue = new CameRoomWeb.CameRoomService.insertBookingRequest();
+            inValue.bookingDatetime = bookingDatetime;
+            inValue.bookingTypeID = bookingTypeID;
+            inValue.userID = userID;
+            inValue.grapherID = grapherID;
+            inValue.eventType = eventType;
+            inValue.provinceID = provinceID;
+            inValue.placeID = placeID;
+            CameRoomWeb.CameRoomService.insertBookingResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).insertBooking(inValue);
+            bookingID = retVal.bookingID;
+            errMsg = retVal.errMsg;
+            return retVal.insertBookingResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.insertBookingResponse> insertBookingAsync(CameRoomWeb.CameRoomService.insertBookingRequest request) {
+            return base.Channel.insertBookingAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CameRoomWeb.CameRoomService.updateBookingStatusResponse CameRoomWeb.CameRoomService.IService.updateBookingStatus(CameRoomWeb.CameRoomService.updateBookingStatusRequest request) {
+            return base.Channel.updateBookingStatus(request);
+        }
+        
+        public bool updateBookingStatus(long bookingID, string bookingStatus, out System.Data.DataSet ds, out string errMsg) {
+            CameRoomWeb.CameRoomService.updateBookingStatusRequest inValue = new CameRoomWeb.CameRoomService.updateBookingStatusRequest();
+            inValue.bookingID = bookingID;
+            inValue.bookingStatus = bookingStatus;
+            CameRoomWeb.CameRoomService.updateBookingStatusResponse retVal = ((CameRoomWeb.CameRoomService.IService)(this)).updateBookingStatus(inValue);
+            ds = retVal.ds;
+            errMsg = retVal.errMsg;
+            return retVal.updateBookingStatusResult;
+        }
+        
+        public System.Threading.Tasks.Task<CameRoomWeb.CameRoomService.updateBookingStatusResponse> updateBookingStatusAsync(CameRoomWeb.CameRoomService.updateBookingStatusRequest request) {
+            return base.Channel.updateBookingStatusAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
