@@ -55,13 +55,14 @@ namespace CameRoomWeb.Utilities
         {
             byte[] b = new byte[st.Length];
             for (int i = 0; i < st.Length; i++)
-        //    {
+            {
                 b[i] = Convert.ToByte(st[i]);
-        //    }
+            }
             return Convert.ToBase64String(b);
-        //}
+        }
+
         public static string base64ToString(string st)
-        //{
+        {
             byte[] b;
             string s = "";
             try
@@ -77,5 +78,6 @@ namespace CameRoomWeb.Utilities
                 s += Convert.ToChar(b[i]);
             }
             return s;
+        }
     }
 }

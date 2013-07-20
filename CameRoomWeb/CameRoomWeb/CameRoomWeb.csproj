@@ -208,6 +208,21 @@
     <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.LockedGrapherResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.deleteMapProvinceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getProvinceListByGrapherIDResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.getProvinceListExceptionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.insertMapProvinceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CameRoomService\CameRoomWeb.CameRoomService.updateBookingStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\CameRoomService\Service.disco" />
     <None Include="Service References\CameRoomService\configuration91.svcinfo" />
     <None Include="Service References\CameRoomService\configuration.svcinfo" />

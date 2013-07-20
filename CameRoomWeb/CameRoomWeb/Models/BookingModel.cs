@@ -122,24 +122,24 @@ namespace CameRoomWeb.Models.BookingModel
         public int grapherID { get; set; }
         public DataSet SearchGrapher { get; set; }
 
-        public IEnumerable<SelectListItem> listPicture
-        {
-            get
-            {
-                string errMsg = "";
-                DataSet ds = null;
-                DataTable dt = null;
-                if (!_cmrWS.getPictureListByEventTypeID(out ds, out errMsg))
-                {
-                    return null;
-                }
-                else
-                {
-                    dt = ds.Tables[0];
-                    return Utilities.Utility.DT2SelectList(dt, "GRAPHERID");
-                }
-            }
-        }
+        //public IEnumerable<SelectListItem> listPicture
+        //{
+        //    get
+        //    {
+        //        string errMsg = "";
+        //        DataSet ds = null;
+        //        DataTable dt = null;
+        //        if (!_cmrWS.getPictureListByEventTypeID(out ds, out errMsg))
+        //        {
+        //            return null;
+        //        }
+        //        else
+        //        {
+        //            dt = ds.Tables[0];
+        //            return Utilities.Utility.DT2SelectList(dt, "GRAPHERID", "GRAPHERID");
+        //        }
+        //    }
+        //}
         
     }
 }
